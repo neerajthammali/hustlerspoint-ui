@@ -64,7 +64,7 @@ export function Header() {
       <div className="container flex h-16 items-center px-4 md:px-6">
         <Link
           href="/"
-          className="mr-6 flex items-center gap-2"
+          className="mr-6 flex items-center"
           prefetch={false}
         >
           <span className="font-headline text-lg font-bold tracking-tight">HustlersPoint</span>
