@@ -6,8 +6,14 @@ import html from 'remark-html';
 
 const contentDirectory = path.join(process.cwd(), 'content');
 
-export function getSortedPostsData(directory: 'blog' | 'stories') {
+type Directory = 'blog' | 'stories' | 'services';
+
+export function getSortedPostsData(directory: Directory) {
   const postsDirectory = path.join(contentDirectory, directory);
+  // Check if directory exists
+  if (!fs.existsSync(postsDirectory)) {
+    return [];
+  }
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData = fileNames.map((fileName) => {
     const id = fileName.replace(/\.md$/, '');
@@ -30,8 +36,11 @@ export function getSortedPostsData(directory: 'blog' | 'stories') {
   });
 }
 
-export function getAllPostIds(directory: 'blog' | 'stories') {
+export function getAllPostIds(directory: Directory) {
     const postsDirectory = path.join(contentDirectory, directory);
+    if (!fs.existsSync(postsDirectory)) {
+      return [];
+    }
     const fileNames = fs.readdirSync(postsDirectory);
 
     return fileNames.map((fileName) => {
@@ -43,7 +52,7 @@ export function getAllPostIds(directory: 'blog' | 'stories') {
     });
 }
 
-export async function getPostData(directory: 'blog' | 'stories', id: string) {
+export async function getPostData(directory: Directory, id: string) {
   const postsDirectory = path.join(contentDirectory, directory);
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');

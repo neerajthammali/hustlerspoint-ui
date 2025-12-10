@@ -72,34 +72,6 @@ export const testimonials: Testimonial[] = [
 
 
 // --- Keeping old data structures for other pages to not break ---
-export type Research = {
-  id: string;
-  title: string;
-  category: string;
-  imageId: string;
-  summary?: string;
-};
-
-export type HustlerStory = {
-  id: string;
-  title: string;
-  summary: string;
-  author: string;
-  authorLink: string;
-  takeaway: string;
-  imageId: string;
-  category?: string;
-};
-
-export type ServiceSpotlight = {
-  id: string;
-  name: string;
-  service: string;
-  link: string;
-  imageId: string;
-  bio: string;
-};
-
 export type Poll = {
   id: string;
   question: string;
@@ -112,64 +84,6 @@ export type Comment = {
   text: string;
   date: string;
   avatarId: string;
-};
-
-export const researchHighlights: Research[] = [
-  {
-    id: "res1",
-    title: "The Rise of CivilTech: A 2024 Market Report",
-    category: "CivilTech",
-    imageId: "research-1",
-    summary: "A deep dive into the growing market of technology for civic engagement and public infrastructure."
-  },
-  {
-    id: "res2",
-    title: "Top 5 SaaS Tools for Bootstrapped Founders in 2025",
-    category: "SaaS/Tools",
-    imageId: "research-2",
-    summary: "From project management to marketing automation, these are the essential tools for lean startups."
-  },
-  {
-    id: "res3",
-    title: "The Deep Work Framework for Modern Professionals",
-    category: "Productivity",
-    imageId: "research-3",
-    summary: "How to cultivate intense focus and produce high-value work in a world of distractions."
-  },
-];
-
-export const hustlerStories: HustlerStory[] = [
-  {
-    id: "story1",
-    title: "From 0 to 10k MRR in 6 Months with a Niche SaaS",
-    summary:
-      "Jane Doe shares her journey of identifying a small, underserved market and building a solution that quickly gained traction.",
-    author: "Jane Doe",
-    authorLink: "#",
-    takeaway: "Hyper-focus on a specific customer pain point is key to early traction and product-market fit.",
-    imageId: "story-1",
-    category: "Hustler Stories"
-  },
-  {
-    id: "story2",
-    title: "How I Landed My First 5 High-Ticket Clients on LinkedIn",
-    summary:
-      "John Smith breaks down his strategy for using content and targeted outreach to build his freelance business from scratch.",
-    author: "John Smith",
-    authorLink: "#",
-    takeaway: "Consistency in providing value upfront builds trust and attracts high-quality clients.",
-    imageId: "story-2",
-    category: "Hustler Stories"
-  },
-];
-
-export const serviceSpotlight: ServiceSpotlight = {
-  id: "spot1",
-  name: "Maria Garcia",
-  service: "UX/UI Design for Early-Stage Startups",
-  link: "#",
-  imageId: "spotlight-1",
-  bio: "Passionate about creating beautiful, intuitive interfaces that help early-stage startups convert users into lifelong customers.",
 };
 
 export const communityPoll: Poll = {
