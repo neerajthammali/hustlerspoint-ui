@@ -1,9 +1,17 @@
 import Link from "next/link"
-import { NewsletterForm } from "@/components/newsletter-form"
+import { Sparkle } from "lucide-react"
+
+const categories = [
+    { name: "Brands & Inspiration", href: "#"},
+    { name: "Tech & AI", href: "#"},
+    { name: "Business & Industry", href: "#"},
+    { name: "Brands & Startups", href: "#"},
+    { name: "Fintech & Startups", href: "#"},
+]
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/40 bg-background/80">
+    <footer className="bg-background border-t">
       <div className="container px-4 md:px-6 py-12">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-3">
@@ -12,39 +20,39 @@ export function Footer() {
               className="flex items-center gap-2"
               prefetch={false}
             >
-              <span className="font-headline text-lg font-bold tracking-tighter text-primary">HustlersPoint</span>
+              <Sparkle className="h-6 w-6 text-primary" />
+              <span className="text-lg font-bold tracking-tight">Hustler Point</span>
             </Link>
-            <p className="text-sm text-muted-foreground">
-              By the people, for the people. Built WITH the community.
-            </p>
           </div>
           <div className="space-y-3">
-            <h4 className="font-semibold font-headline">Navigation</h4>
+            <h4 className="font-semibold">Navigation</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/blog" className="text-muted-foreground hover:text-foreground">Blog</Link></li>
-              <li><Link href="/stories" className="text-muted-foreground hover:text-foreground">Hustler Stories</Link></li>
-              <li><Link href="/services" className="text-muted-foreground hover:text-foreground">Boost Services</Link></li>
-              <li><Link href="/polls" className="text-muted-foreground hover:text-foreground">Polls</Link></li>
-            </ul>
-          </div>
-          <div className="space-y-3">
-            <h4 className="font-semibold font-headline">Community</h4>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/submit" className="text-muted-foreground hover:text-foreground">Submit Your Idea</Link></li>
-              <li><Link href="#" className="text-muted-foreground hover:text-foreground">About Us</Link></li>
+              <li><Link href="/" className="text-muted-foreground hover:text-foreground">Home</Link></li>
+              <li><Link href="/blog" className="text-muted-foreground hover:text-foreground">Articles</Link></li>
+              <li><Link href="#" className="text-muted-foreground hover:text-foreground">About</Link></li>
+              <li><Link href="/submit" className="text-muted-foreground hover:text-foreground">Share Idea</Link></li>
               <li><Link href="#" className="text-muted-foreground hover:text-foreground">Contact</Link></li>
             </ul>
           </div>
           <div className="space-y-3">
-            <h4 className="font-semibold font-headline">Stay Updated</h4>
-            <p className="text-sm text-muted-foreground">
-              Subscribe to our newsletter for weekly insights and polls.
-            </p>
-            <NewsletterForm />
+            <h4 className="font-semibold">Categories</h4>
+            <ul className="space-y-2 text-sm">
+                {categories.map(cat => (
+                     <li key={cat.name}><Link href={cat.href} className="text-muted-foreground hover:text-foreground">{cat.name}</Link></li>
+                ))}
+            </ul>
+          </div>
+          <div className="space-y-3">
+            <h4 className="font-semibold">Connect</h4>
+            {/* Social links can be added here */}
           </div>
         </div>
-        <div className="mt-8 border-t border-border/40 pt-6 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} HustlersPoint. All Rights Reserved.
+        <div className="mt-8 border-t pt-6 flex justify-between text-sm text-muted-foreground">
+          <p>© {new Date().getFullYear()} Hustler Point. All Rights Reserved.</p>
+          <div className="flex gap-4">
+            <Link href="#" className="hover:text-foreground">Privacy Policy</Link>
+            <Link href="#" className="hover:text-foreground">Terms of Service</Link>
+          </div>
         </div>
       </div>
     </footer>
