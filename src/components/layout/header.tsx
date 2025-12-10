@@ -23,26 +23,37 @@ const navLinks = [
 export function Header() {
   const isMobile = useIsMobile();
   const [isMounted, setIsMounted] = React.useState(false);
-  const [isDark, setIsDark] = React.useState(() => {
-    if (typeof window === 'undefined') return false;
-    return document.documentElement.classList.contains('dark');
-  });
+  const [isDark, setIsDark] = React.useState(false);
 
   React.useEffect(() => {
     setIsMounted(true);
+    // On mount, check the saved theme and system preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme) {
+      setIsDark(savedTheme === 'dark');
+    } else {
+      setIsDark(prefersDark);
+    }
   }, []);
   
   React.useEffect(() => {
-    if(isMounted && isMobile !== undefined){
-      document.documentElement.classList.toggle('dark', isDark);
+    if(isMounted){
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
     }
-  },[isDark, isMounted, isMobile])
+  },[isDark, isMounted])
 
   const toggleTheme = () => {
     setIsDark(prev => !prev);
   }
 
-  const themeIcon = isMounted && isMobile !== undefined ? (
+  const themeIcon = isMounted ? (
     isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />
   ) : null;
 
@@ -54,7 +65,7 @@ export function Header() {
           className="mr-6 flex items-center gap-2"
           prefetch={false}
         >
-          <span className="font-headline text-lg font-extrabold tracking-tight text-primary">HustlersPoint</span>
+          <span className="font-headline text-lg font-bold tracking-tight">HustlersPoint</span>
         </Link>
         <nav className="hidden flex-1 items-center gap-6 md:flex">
           {navLinks.map((link) => (

@@ -27,7 +27,7 @@ export const editorPicks: EditorPick[] = [
     date: "October 11, 2025",
   },
   {
-    id: "pick2",
+    id: "res2",
     title: "The AI Tools That Are Changing Software Development",
     category: "Tech & AI",
     description: "An in-depth look at how AI coding assistants and generative models are reshaping the way we build software.",
@@ -77,6 +77,7 @@ export type Research = {
   title: string;
   category: string;
   imageId: string;
+  summary?: string;
 };
 
 export type HustlerStory = {
@@ -87,6 +88,7 @@ export type HustlerStory = {
   authorLink: string;
   takeaway: string;
   imageId: string;
+  category?: string;
 };
 
 export type ServiceSpotlight = {
@@ -117,18 +119,21 @@ export const researchHighlights: Research[] = [
     title: "The Rise of CivilTech: A 2024 Market Report",
     category: "CivilTech",
     imageId: "research-1",
+    summary: "A deep dive into the growing market of technology for civic engagement and public infrastructure."
   },
   {
     id: "res2",
     title: "Top 5 SaaS Tools for Bootstrapped Founders in 2025",
     category: "SaaS/Tools",
     imageId: "research-2",
+    summary: "From project management to marketing automation, these are the essential tools for lean startups."
   },
   {
     id: "res3",
     title: "The Deep Work Framework for Modern Professionals",
     category: "Productivity",
     imageId: "research-3",
+    summary: "How to cultivate intense focus and produce high-value work in a world of distractions."
   },
 ];
 
@@ -142,6 +147,7 @@ export const hustlerStories: HustlerStory[] = [
     authorLink: "#",
     takeaway: "Hyper-focus on a specific customer pain point is key to early traction and product-market fit.",
     imageId: "story-1",
+    category: "Hustler Stories"
   },
   {
     id: "story2",
@@ -152,6 +158,7 @@ export const hustlerStories: HustlerStory[] = [
     authorLink: "#",
     takeaway: "Consistency in providing value upfront builds trust and attracts high-quality clients.",
     imageId: "story-2",
+    category: "Hustler Stories"
   },
 ];
 

@@ -61,7 +61,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {editorPicks.map((pick) => {
               const image = PlaceHolderImages.find(p => p.id === pick.imageId);
-              const postUrl = pick.category === "Brands & Inspiration" || pick.category === "Business & Industry" ? `/stories/${pick.id}` : `/blog/${pick.id}`;
+              const postUrl = pick.category === "Hustler Story" ? `/stories/${pick.id}` : `/blog/${pick.id}`;
               return (
                 <Card key={pick.id} className="overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
                   <Link href={postUrl} className="block">
