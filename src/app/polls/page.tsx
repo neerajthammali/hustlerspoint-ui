@@ -4,17 +4,28 @@ import { useState } from 'react';
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import { communityPoll } from '@/lib/data';
-import { Input } from '@/components/ui/input';
-import { MessageSquare, CheckCircle2 } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { cn } from '@/lib/utils';
 
-type PollWithOptions = typeof communityPoll;
+type Poll = {
+  id: string;
+  question: string;
+  options: { text: string; votes: number }[];
+};
 
-const pollsData: PollWithOptions[] = [
-  communityPoll,
+
+const pollsData: Poll[] = [
+  {
+    id: 'poll1',
+    question: 'Which deep-dive should we publish next?',
+    options: [
+      { text: 'AI in B2B Marketing', votes: 45 },
+      { text: 'The Future of Remote Team Collaboration', votes: 30 },
+      { text: "Bootstrapping vs. VC Funding: A Founder's Guide", votes: 25 },
+    ],
+  },
   {
     id: 'poll2',
     question: 'Which SaaS review do you want to see next?',
@@ -35,7 +46,7 @@ const pollsData: PollWithOptions[] = [
   },
 ];
 
-const PollCard = ({ poll }: { poll: PollWithOptions }) => {
+const PollCard = ({ poll }: { poll: Poll }) => {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const totalVotes = poll.options.reduce((acc, option) => acc + option.votes, 0);
   const winningOption = poll.options.reduce((prev, current) => (prev.votes > current.votes) ? prev : current);

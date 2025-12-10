@@ -1,17 +1,9 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { communityPoll, comments } from "@/lib/data";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { MessageSquare } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Progress } from "@/components/ui/progress";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getPostData, getSortedPostsData, getAllPostIds } from "@/lib/posts";
 import { format } from "date-fns";
 import type { Metadata } from 'next';
@@ -44,9 +36,10 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   const allPosts = getSortedPostsData('blog');
   const image = PlaceHolderImages.find(p => p.id === post.imageId);
   const popularPostsData = getSortedPostsData('stories');
-  const popularPosts = [...allPosts, ...popularPostsData].filter(p => p.id !== post.id).slice(0, 3);
-  const poll = communityPoll;
-  const totalVotes = poll.options.reduce((acc, option) => acc + option.votes, 0);
+  const popularPosts = [...allPosts, ...popularPostsData]
+    .filter(p => p.id !== post.id)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 3);
 
   return (
     <div className="container mx-auto px-4 md:px-6 py-12">
@@ -72,56 +65,6 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
               <div className="prose prose-lg dark:prose-invert max-w-none mx-auto" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
 
-                {/* Comments Section */}
-                <section className="mt-16">
-                    <h2 className="text-2xl font-bold mb-6">Join the Discussion</h2>
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Leave a Comment</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <form className="space-y-4">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div className="space-y-2">
-                                        <Label htmlFor="name">Name</Label>
-                                        <Input id="name" placeholder="Your name" />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <Label htmlFor="email">Email</Label>
-                                        <Input id="email" type="email" placeholder="Your email" />
-                                    </div>
-                                </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="comment">Comment</Label>
-                                    <Textarea id="comment" placeholder="Write your comment here..." rows={4}/>
-                                </div>
-                                <Button>Post Comment</Button>
-                            </form>
-                        </CardContent>
-                    </Card>
-
-                    <div className="mt-8 space-y-6">
-                        <h3 className="text-xl font-semibold">{comments.length} Comments</h3>
-                        {comments.map(comment => {
-                           const avatar = PlaceHolderImages.find(p => p.id === comment.avatarId);
-                           return (
-                             <div key={comment.id} className="flex gap-4">
-                               <Avatar>
-                                 <AvatarImage src={avatar?.imageUrl} alt={comment.name} data-ai-hint={avatar?.imageHint} />
-                                 <AvatarFallback>{comment.name.charAt(0)}</AvatarFallback>
-                               </Avatar>
-                               <div className="flex-1">
-                                 <div className="flex justify-between items-center">
-                                     <p className="font-semibold">{comment.name}</p>
-                                     <p className="text-xs text-muted-foreground">{comment.date}</p>
-                                 </div>
-                                 <p className="text-muted-foreground mt-1">{comment.text}</p>
-                               </div>
-                             </div>
-                           )
-                        })}
-                    </div>
-                </section>
             </article>
 
             <aside className="lg:col-span-1 space-y-8">
@@ -144,33 +87,6 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                             )
                         })}
                     </CardContent>
-                </Card>
-
-                {/* Community Poll */}
-                <Card className="overflow-hidden">
-                    <CardHeader>
-                        <CardTitle className="font-headline text-xl">Community Poll</CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                        <p className="font-semibold">{poll.question}</p>
-                        <div className="space-y-3">
-                        {poll.options.map((option, index) => {
-                            const percentage = totalVotes > 0 ? Math.round((option.votes / totalVotes) * 100) : 0;
-                            return (
-                            <div key={index}>
-                                <div className="flex justify-between items-center text-sm mb-1">
-                                <span className="font-medium">{option.text}</span>
-                                <span className="font-bold w-10 text-right">{percentage}%</span>
-                                </div>
-                                <Progress value={percentage} />
-                            </div>
-                            );
-                        })}
-                        </div>
-                    </CardContent>
-                    <CardFooter className="bg-secondary/50 p-4">
-                        <Button className="w-full">Vote Now</Button>
-                    </CardFooter>
                 </Card>
             </aside>
         </div>

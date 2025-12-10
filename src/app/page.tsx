@@ -9,11 +9,12 @@ import { Badge } from "@/components/ui/badge";
 import { getSortedPostsData } from "@/lib/posts";
 
 export default function Home() {
-  const editorPicksData = getSortedPostsData('blog').slice(0, 2);
-  const editorStory = getSortedPostsData('stories').slice(0, 1).map(s => ({...s, category: "Hustler Story"}))[0];
-  const editorPicks = [...editorPicksData, editorStory];
-
+  const blogPosts = getSortedPostsData('blog');
   const stories = getSortedPostsData('stories');
+  
+  const editorPicksData = blogPosts.slice(0, 2);
+  const editorStory = stories.slice(0, 1).map(s => ({...s, category: "Hustler Story"}))[0];
+  const editorPicks = [...editorPicksData, editorStory].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (
     <div className="w-full">
@@ -98,12 +99,12 @@ export default function Home() {
                   <Link href={postUrl} className="block">
                     <div className="relative h-48 w-full">
                       {image && (
-                        <Image src={image.imageUrl} alt={image.description} fill className="object-cover" data-ai-hint={image.imageHint} />
+                        <Image src={image.imageUrl} alt={pick.title} fill className="object-cover" data-ai-hint={image.imageHint} />
                       )}
                     </div>
                   </Link>
                   <CardHeader>
-                    <p className="text-sm text-primary font-medium">{pick.category}</p>
+                    {pick.category && <p className="text-sm text-primary font-medium">{pick.category}</p>}
                     <CardTitle className="text-xl font-semibold leading-tight font-headline"><Link href={postUrl}>{pick.title}</Link></CardTitle>
                   </CardHeader>
                   <CardContent>

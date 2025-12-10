@@ -11,7 +11,7 @@ export default function BlogPage() {
     const categories = ["Research", "Hustler Stories", "Service Spotlights", "Career + Productivity", "Tech & Tools", "CivilTech"];
     const blogPosts = getSortedPostsData('blog');
     const storyPosts = getSortedPostsData('stories').map(s => ({...s, category: "Hustler Stories"}));
-    const allPosts = [...blogPosts, ...storyPosts];
+    const allPosts = [...blogPosts, ...storyPosts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (
     <div className="container mx-auto px-4 md:px-6 py-12">
