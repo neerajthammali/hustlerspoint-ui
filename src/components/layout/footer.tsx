@@ -1,10 +1,9 @@
 import Link from "next/link"
-import { Briefcase } from "lucide-react"
 import { NewsletterForm } from "@/components/newsletter-form"
 
 export function Footer() {
   return (
-    <footer className="border-t bg-card">
+    <footer className="border-t bg-secondary/50">
       <div className="container px-4 md:px-6 py-12">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-3">
@@ -13,39 +12,39 @@ export function Footer() {
               className="flex items-center gap-2"
               prefetch={false}
             >
-              <Briefcase className="h-6 w-6 text-primary" />
-              <span className="font-headline text-lg font-semibold tracking-tighter">HUSTLERSPOINT</span>
+              <span className="font-headline text-lg font-bold tracking-tighter text-primary">HustlersPoint</span>
             </Link>
             <p className="text-sm text-muted-foreground">
-              The premier community for entrepreneurs, innovators, and go-getters.
+              By the people, for the people. Built WITH the community.
             </p>
           </div>
           <div className="space-y-3">
-            <h4 className="font-semibold">Quick Links</h4>
+            <h4 className="font-semibold">Navigation</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/feed" className="text-muted-foreground hover:text-foreground">Feed</Link></li>
-              <li><Link href="/groups" className="text-muted-foreground hover:text-foreground">Groups</Link></li>
-              <li><Link href="/members" className="text-muted-foreground hover:text-foreground">Members</Link></li>
+              <li><Link href="/blog" className="text-muted-foreground hover:text-foreground">Blog</Link></li>
+              <li><Link href="/stories" className="text-muted-foreground hover:text-foreground">Hustler Stories</Link></li>
+              <li><Link href="/services" className="text-muted-foreground hover:text-foreground">Boost Services</Link></li>
+              <li><Link href="/polls" className="text-muted-foreground hover:text-foreground">Polls</Link></li>
             </ul>
           </div>
           <div className="space-y-3">
-            <h4 className="font-semibold">Resources</h4>
+            <h4 className="font-semibold">Community</h4>
             <ul className="space-y-2 text-sm">
+              <li><Link href="/submit" className="text-muted-foreground hover:text-foreground">Submit Your Idea</Link></li>
               <li><Link href="#" className="text-muted-foreground hover:text-foreground">About Us</Link></li>
               <li><Link href="#" className="text-muted-foreground hover:text-foreground">Contact</Link></li>
-              <li><Link href="#" className="text-muted-foreground hover:text-foreground">Terms of Service</Link></li>
             </ul>
           </div>
           <div className="space-y-3">
             <h4 className="font-semibold">Stay Updated</h4>
             <p className="text-sm text-muted-foreground">
-              Subscribe to our newsletter for exclusive content and updates.
+              Subscribe to our newsletter for weekly insights and polls.
             </p>
             <NewsletterForm />
           </div>
         </div>
         <div className="mt-8 border-t pt-6 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} HUSTLERSPOINT. All Rights Reserved.
+          © {new Date().getFullYear()} HustlersPoint. All Rights Reserved.
         </div>
       </div>
     </footer>

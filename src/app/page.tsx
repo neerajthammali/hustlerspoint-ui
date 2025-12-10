@@ -1,84 +1,232 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { NewsCard } from "@/components/news-card";
-import { news, sources } from "@/lib/data";
-import { PlaceHolderImages, type ImagePlaceholder } from "@/lib/placeholder-images";
-import { ArrowRight } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  researchHighlights,
+  hustlerStories,
+  serviceSpotlight,
+  communityPoll,
+} from "@/lib/data";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { ArrowRight, ChevronRight, Linkedin, Mic, Rss } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Progress } from "@/components/ui/progress";
+import { NewsletterForm } from "@/components/newsletter-form";
 
 export default function Home() {
-  const heroImage = PlaceHolderImages.find(p => p.id === 'hero');
+  const heroImage = PlaceHolderImages.find((p) => p.id === "hero-home");
 
-  const getArticleImage = (id: string): ImagePlaceholder => {
-    return PlaceHolderImages.find(p => p.id === id) || PlaceHolderImages[0];
-  }
+  const totalVotes = communityPoll.options.reduce(
+    (acc, option) => acc + option.votes,
+    0
+  );
 
   return (
     <div className="w-full">
-      <section className="relative w-full h-[60vh] min-h-[400px] max-h-[600px] flex items-center justify-center text-center text-white">
-        {heroImage && (
-          <Image
-            src={heroImage.imageUrl}
-            alt={heroImage.description}
-            fill
-            className="object-cover"
-            priority
-            data-ai-hint={heroImage.imageHint}
-          />
-        )}
-        <div className="absolute inset-0 bg-primary/70" />
+      {/* Hero Section */}
+      <section className="relative w-full h-[50vh] min-h-[300px] max-h-[450px] flex items-center justify-center text-center text-white bg-primary">
         <div className="relative z-10 container px-4 md:px-6">
           <div className="max-w-3xl mx-auto space-y-4">
             <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-              Connect, Collaborate, and Conquer
+              Real Hustlers, Real Insights
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/90">
-              HUSTLERSPOINT is your exclusive hub to network with innovators, share ideas, and accelerate your growth.
+              Research, stories, and community talent. You decide what comes
+              next.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-                <Link href="/feed">
-                  Join the Conversation <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
-                <Link href="/members">
-                  Meet the Members
-                </Link>
-              </Button>
-            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-12 md:py-16 lg:py-20">
-        <div className="container px-4 md:px-6">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="font-headline text-3xl md:text-4xl font-bold">Curated News</h2>
-            <p className="text-muted-foreground mt-2 md:text-lg">Your daily digest from the front lines of innovation.</p>
+      {/* Main Content Grid */}
+      <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
+          {/* Left Column */}
+          <div className="lg:col-span-2 space-y-12">
+            {/* Research Highlights */}
+            <section>
+              <h2 className="font-headline text-3xl font-bold mb-6">
+                Your Research Highlights
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {researchHighlights.map((item) => {
+                  const image = PlaceHolderImages.find(
+                    (p) => p.id === item.imageId
+                  );
+                  return (
+                    <Link href="/blog" key={item.id}>
+                      <Card className="h-full overflow-hidden transition-shadow hover:shadow-lg">
+                        <div className="relative h-40 w-full">
+                          {image && (
+                            <Image
+                              src={image.imageUrl}
+                              alt={image.description}
+                              fill
+                              className="object-cover"
+                              data-ai-hint={image.imageHint}
+                            />
+                          )}
+                        </div>
+                        <CardHeader>
+                          <CardTitle className="text-base font-semibold">
+                            {item.title}
+                          </CardTitle>
+                        </CardHeader>
+                      </Card>
+                    </Link>
+                  );
+                })}
+              </div>
+            </section>
+
+            {/* Hustlers Stories */}
+            <section>
+              <h2 className="font-headline text-3xl font-bold mb-6">
+                Hustlers Stories from LinkedIn
+              </h2>
+              <div className="space-y-6">
+                {hustlerStories.map((story) => {
+                  const image = PlaceHolderImages.find(
+                    (p) => p.id === story.imageId
+                  );
+                  const authorAvatar = PlaceHolderImages.find(
+                    (p) => p.id === "avatar-1"
+                  );
+                  return (
+                    <Link
+                      href="/stories"
+                      key={story.id}
+                      className="block"
+                    >
+                      <Card className="flex flex-col md:flex-row items-center gap-6 p-4 transition-shadow hover:shadow-lg">
+                        <div className="relative h-40 w-full md:w-1/3 flex-shrink-0 rounded-md overflow-hidden">
+                          {image && (
+                            <Image
+                              src={image.imageUrl}
+                              alt={image.description}
+                              fill
+                              className="object-cover"
+                              data-ai-hint={image.imageHint}
+                            />
+                          )}
+                        </div>
+                        <div className="flex-grow">
+                          <h3 className="text-lg font-bold">
+                            {story.title}
+                          </h3>
+                          <p className="text-sm text-muted-foreground mt-2">
+                            {story.summary}
+                          </p>
+                          <div className="flex items-center gap-2 mt-4 text-sm">
+                            <Linkedin className="h-4 w-4" />
+                            <span>
+                              Story by <strong>{story.author}</strong>
+                            </span>
+                          </div>
+                        </div>
+                      </Card>
+                    </Link>
+                  );
+                })}
+              </div>
+            </section>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {news.map(article => {
-              const articleImage = getArticleImage(article.imageId);
-              const source = sources.find(s => s.id === article.sourceId);
-              return (
-                <NewsCard 
-                  key={article.id}
-                  id={article.id}
-                  title={article.title}
-                  description={article.description}
-                  imageUrl={articleImage.imageUrl}
-                  imageAlt={articleImage.description}
-                  imageHint={articleImage.imageHint}
-                  sourceName={source?.name || 'Unknown'}
-                  publishedAt={article.publishedAt}
-                />
-              );
-            })}
-          </div>
+          {/* Right Column */}
+          <aside className="space-y-8 lg:sticky top-24 self-start">
+            {/* Service Spotlight */}
+            <section>
+              <Card className="bg-secondary">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Mic className="h-5 w-5" />
+                    Today’s Hustler Spotlight
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <Avatar className="w-24 h-24 mx-auto mb-4 border-4 border-background">
+                    <AvatarImage
+                      src={
+                        PlaceHolderImages.find(
+                          (p) => p.id === serviceSpotlight.imageId
+                        )?.imageUrl
+                      }
+                      alt={serviceSpotlight.name}
+                      data-ai-hint="person portrait"
+                    />
+                    <AvatarFallback>
+                      {serviceSpotlight.name.charAt(0)}
+                    </AvatarFallback>
+                  </Avatar>
+                  <h3 className="text-lg font-bold">{serviceSpotlight.name}</h3>
+                  <p className="text-muted-foreground">
+                    {serviceSpotlight.service}
+                  </p>
+                  <Button asChild variant="link" className="mt-2">
+                    <Link href="/services">
+                      Boost Their Service <ChevronRight className="h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            </section>
+
+            {/* Community Poll */}
+            <section>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Community Poll</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <h4 className="font-semibold">{communityPoll.question}</h4>
+                  <div className="space-y-3">
+                    {communityPoll.options.map((option, index) => {
+                      const percentage =
+                        totalVotes > 0
+                          ? Math.round((option.votes / totalVotes) * 100)
+                          : 0;
+                      return (
+                        <div key={index}>
+                          <div className="flex justify-between text-sm mb-1">
+                            <span>{option.text}</span>
+                            <span className="font-medium">{percentage}%</span>
+                          </div>
+                          <Progress value={percentage} />
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <Button asChild className="w-full">
+                    <Link href="/polls">
+                      Vote Now <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            </section>
+
+            {/* Newsletter */}
+            <section>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Rss className="h-5 w-5" />
+                    Join The Newsletter
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Get weekly insights, polls, and tool lists delivered to
+                    your inbox.
+                  </p>
+                  <NewsletterForm />
+                </CardContent>
+              </Card>
+            </section>
+          </aside>
         </div>
-      </section>
+      </div>
     </div>
   );
 }

@@ -2,37 +2,29 @@
 
 import Link from "next/link"
 import {
-  Briefcase,
   Feather,
-  Home,
   Menu,
-  MessageSquare,
+  MessageCircle,
   Users,
+  Home,
+  BookOpen,
+  Vote,
+  Briefcase,
+  Send
 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { PlaceHolderImages } from "@/lib/placeholder-images"
-import { members } from "@/lib/data"
 
 const navLinks = [
-  { href: "/feed", label: "Feed", icon: Feather },
-  { href: "/groups", label: "Groups", icon: MessageSquare },
-  { href: "/members", label: "Members", icon: Users },
+  { href: "/blog", label: "Blog", icon: BookOpen },
+  { href: "/stories", label: "Stories", icon: Feather },
+  { href: "/services", label: "Services", icon: Briefcase },
+  { href: "/polls", label: "Polls", icon: Vote },
+  { href: "/submit", label: "Submit", icon: Send },
 ]
 
 export function Header() {
-  const currentUser = members.find(m => m.id === 'u1');
-  const userAvatar = PlaceHolderImages.find(p => p.id === currentUser?.avatarImageId);
 
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur-sm">
@@ -42,8 +34,7 @@ export function Header() {
           className="mr-6 flex items-center gap-2"
           prefetch={false}
         >
-          <Briefcase className="h-6 w-6 text-primary" />
-          <span className="font-headline text-lg font-semibold tracking-tighter">HUSTLERSPOINT</span>
+          <span className="font-headline text-lg font-bold tracking-tighter text-primary">HustlersPoint</span>
         </Link>
         <nav className="hidden flex-1 items-center gap-6 md:flex">
           {navLinks.map((link) => (
@@ -58,33 +49,6 @@ export function Header() {
           ))}
         </nav>
         <div className="flex flex-1 items-center justify-end gap-4">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="relative h-10 w-10 rounded-full">
-                <Avatar className="h-10 w-10">
-                  <AvatarImage src={userAvatar?.imageUrl} alt={currentUser?.name} data-ai-hint={userAvatar?.imageHint} />
-                  <AvatarFallback>{currentUser?.name.charAt(0)}</AvatarFallback>
-                </Avatar>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56" align="end" forceMount>
-              <DropdownMenuLabel className="font-normal">
-                <div className="flex flex-col space-y-1">
-                  <p className="text-sm font-medium leading-none">{currentUser?.name}</p>
-                  <p className="text-xs leading-none text-muted-foreground">
-                    {currentUser?.username}
-                  </p>
-                </div>
-              </DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem asChild>
-                <Link href={`/members/${currentUser?.username}`}>Profile</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Log out</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon" className="md:hidden">
