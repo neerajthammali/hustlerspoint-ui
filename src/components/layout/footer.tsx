@@ -29,9 +29,10 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/" className="text-muted-foreground hover:text-foreground">Home</Link></li>
               <li><Link href="/blog" className="text-muted-foreground hover:text-foreground">Articles</Link></li>
-              <li><Link href="#" className="text-muted-foreground hover:text-foreground">About</Link></li>
-              <li><Link href="/submit" className="text-muted-foreground hover:text-foreground">Share Idea</Link></li>
-              <li><Link href="#" className="text-muted-foreground hover:text-foreground">Contact</Link></li>
+              <li><Link href="/stories" className="text-muted-foreground hover:text-foreground">Stories</Link></li>
+              <li><Link href="/services" className="text-muted-foreground hover:text-foreground">Services</Link></li>
+              <li><Link href="/polls" className="text-muted-foreground hover:text-foreground">Polls</Link></li>
+              <li><Link href="/submit" className="text-muted-foreground hover:text-foreground">Submit</Link></li>
             </ul>
           </div>
           <div className="space-y-3">

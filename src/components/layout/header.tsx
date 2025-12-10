@@ -15,22 +15,37 @@ import React from "react"
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/blog", label: "Articles" },
-  { href: "#", label: "About" },
-  { href: "/submit", label: "Share Idea" },
-  { href: "#", label: "Contact" },
+  { href: "/stories", label: "Stories" },
+  { href: "/services", label: "Services" },
+  { href: "/polls", label: "Polls" },
+  { href: "/submit", label: "Submit" },
 ]
 
 export function Header() {
-  // A real implementation would use a theme provider
-  const [isDark, setIsDark] = React.useState(false); 
+  const [isMounted, setIsMounted] = React.useState(false);
+  const [isDark, setIsDark] = React.useState(() => {
+    if (typeof window === 'undefined') return false;
+    return document.documentElement.classList.contains('dark');
+  }); 
+
+  React.useEffect(() => {
+    setIsMounted(true);
+  }, []);
   
   const toggleTheme = () => {
-    setIsDark(!isDark);
-    document.documentElement.classList.toggle('dark', !isDark);
+    const newIsDark = !isDark;
+    setIsDark(newIsDark);
+    document.documentElement.classList.toggle('dark', newIsDark);
   }
 
+  const themeIcon = isMounted ? (
+    isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />
+  ) : (
+    <Moon className="h-5 w-5" />
+  );
+
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background">
+    <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur-sm">
       <div className="container flex h-16 items-center px-4 md:px-6">
         <Link
           href="/"
@@ -54,7 +69,7 @@ export function Header() {
         </nav>
         <div className="flex flex-1 items-center justify-end gap-2">
             <Button variant="ghost" size="icon" onClick={toggleTheme}>
-              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {themeIcon}
               <span className="sr-only">Toggle theme</span>
             </Button>
           <Sheet>
