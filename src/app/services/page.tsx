@@ -21,13 +21,11 @@ export default function ServicesPage() {
   const todayImage = PlaceHolderImages.find(p => p.id === todaySpotlight.imageId);
   return (
     <div className="container mx-auto px-4 md:px-6 py-12">
-      <header className="mb-12 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-        <div>
-            <h1 className="font-headline text-4xl md:text-5xl font-bold">Boost Services</h1>
-            <p className="text-muted-foreground mt-2 md:text-lg">A directory of talented hustlers from our community. Hire them for your next project.</p>
-        </div>
-        <Button asChild size="lg">
-            <Link href="/submit">Submit Your Service</Link>
+      <header className="text-center mb-12">
+        <h1 className="font-headline text-4xl md:text-5xl font-bold">Boost Services</h1>
+        <p className="text-muted-foreground mt-2 md:text-lg">A directory of talented hustlers from our community. Hire them for your next project.</p>
+        <Button asChild className="mt-6">
+             <Link href="/submit">Submit Your Service</Link>
         </Button>
       </header>
 
