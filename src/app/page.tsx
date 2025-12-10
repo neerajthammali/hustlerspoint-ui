@@ -2,12 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { editorPicks, testimonials, hustlerStories } from "@/lib/data";
+import { editorPicks, hustlerStories } from "@/lib/data";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { ArrowRight, BookOpen, TrendingUp, Users, Linkedin } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import { NewsletterForm } from "@/components/newsletter-form";
+import { Badge } from "@/components/ui/badge";
 
 export default function Home() {
 
@@ -50,10 +49,10 @@ export default function Home() {
               A community-driven platform for founders, builders, and creators to share and discover real-world business insights.
             </p>
             <div className="flex justify-center gap-4">
-                <Button asChild size="lg" className="bg-white text-slate-900 hover:bg-slate-200">
+                <Button asChild size="lg" variant="default">
                     <Link href="/blog">Explore Content <ArrowRight className="ml-2" /></Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="border-slate-400 text-white hover:bg-white/10 hover:text-white">
+                <Button asChild variant="secondary" size="lg">
                     <Link href="/submit">Become a Contributor</Link>
                 </Button>
             </div>
