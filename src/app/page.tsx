@@ -19,12 +19,12 @@ export default function Home() {
             <svg width="100%" height="100%" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1440 550" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <defs>
                     <radialGradient id="gradient1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-                        <stop offset="0%" stop-color="hsla(217, 91%, 59%, 0.2)"/>
-                        <stop offset="100%" stop-color="hsla(217, 91%, 59%, 0)"/>
+                        <stop offset="0%" stopColor="hsla(217, 91%, 59%, 0.2)"/>
+                        <stop offset="100%" stopColor="hsla(217, 91%, 59%, 0)"/>
                     </radialGradient>
                     <radialGradient id="gradient2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-                        <stop offset="0%" stop-color="hsla(224, 71%, 4%, 0.2)"/>
-                        <stop offset="100%" stop-color="hsla(224, 71%, 4%, 0)"/>
+                        <stop offset="0%" stopColor="hsla(224, 71%, 4%, 0.2)"/>
+                        <stop offset="100%" stopColor="hsla(224, 71%, 4%, 0)"/>
                     </radialGradient>
                 </defs>
                 <rect width="1440" height="550" fill="url(#gradient2)"/>
