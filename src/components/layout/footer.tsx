@@ -6,20 +6,20 @@ export function Footer() {
     <footer className="bg-slate-900 text-slate-300">
       <div className="container px-4 md:px-6 py-12">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="space-y-4">
+          <div className="space-y-2">
             <Link
               href="/"
               className="flex items-center gap-2"
               prefetch={false}
             >
-              <span className="font-headline text-lg font-bold tracking-tighter text-white">HustlersPoint</span>
+              <span className="font-headline text-base font-bold tracking-tighter text-white">HustlersPoint</span>
             </Link>
-            <p className="text-sm">
+            <p className="text-xs text-slate-400">
               By the people, for the people. Built WITH the community.
             </p>
           </div>
           <div className="space-y-4">
-            <h4 className="font-headline text-lg font-bold text-white">Explore</h4>
+            <h4 className="font-headline text-base font-bold text-white">Explore</h4>
             <ul className="space-y-2 text-sm">
               <li><Link href="/stories" className="hover:text-white hover:underline">Stories</Link></li>
               <li><Link href="/services" className="hover:text-white hover:underline">Services</Link></li>
@@ -27,11 +27,11 @@ export function Footer() {
             </ul>
           </div>
           <div className="space-y-4">
-            <h4 className="font-headline text-lg font-bold text-white">Pages</h4>
+            <h4 className="font-headline text-base font-bold text-white">Pages</h4>
             <ul className="space-y-2 text-sm">
               <li><Link href="#" className="hover:text-white hover:underline">About</Link></li>
               <li><Link href="#" className="hover:text-white hover:underline">Contact</Link></li>
-              <li><Link href="/submit" className="hovertext-white hover:underline">Write For Us</Link></li>
+              <li><Link href="/submit" className="hover:text-white hover:underline">Write For Us</Link></li>
             </ul>
           </div>
         </div>
