@@ -12,9 +12,9 @@ export function Footer() {
               className="flex items-center gap-2"
               prefetch={false}
             >
-              <span className="font-headline text-base font-bold tracking-tighter text-white">HustlersPoint</span>
+              <span className="font-headline text-lg font-bold tracking-tighter text-white">HustlersPoint</span>
             </Link>
-            <p className="text-xs text-slate-400">
+            <p className="text-sm text-slate-400">
               By the people, for the people. Built WITH the community.
             </p>
           </div>
