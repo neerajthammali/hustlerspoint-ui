@@ -33,6 +33,7 @@ export function Footer() {
               <li><Link href="/submit" className="text-muted-foreground hover:text-foreground">Submit Your Idea</Link></li>
               <li><Link href="/about" className="text-muted-foreground hover:text-foreground">About Us</Link></li>
               <li><Link href="/contact" className="text-muted-foreground hover:text-foreground">Contact</Link></li>
+              <li><Link href="/gallery" className="text-muted-foreground hover:text-foreground">Image Gallery</Link></li>
               <li><Link href="/privacy" className="text-muted-foreground hover:text-foreground">Privacy Policy</Link></li>
               <li><Link href="/terms" className="text-muted-foreground hover:text-foreground">Terms of Service</Link></li>
               <li><Link href="/sitemap" className="text-muted-foreground hover:text-foreground">Sitemap</Link></li>
