@@ -35,13 +35,6 @@ export function Footer() {
               <li><Link href="#" className="text-muted-foreground hover:text-foreground">Contact</Link></li>
             </ul>
           </div>
-          <div className="space-y-3">
-            <h4 className="font-semibold">Stay Updated</h4>
-            <p className="text-sm text-muted-foreground">
-              Subscribe to our newsletter for weekly insights and polls.
-            </p>
-            <NewsletterForm />
-          </div>
         </div>
         <div className="mt-8 border-t pt-6 text-center text-sm text-muted-foreground">
           © {new Date().getFullYear()} HustlersPoint. All Rights Reserved.
