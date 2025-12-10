@@ -21,11 +21,9 @@ export function Footer() {
           <div className="space-y-4">
             <h4 className="font-headline text-lg font-bold text-white">Explore</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/blog" className="hover:text-white hover:underline">Blog</Link></li>
-              <li><Link href="/stories" className="hover:text-white hover:underline">Hustler Stories</Link></li>
-              <li><Link href="/services" className="hover:text-white hover:underline">Boost Services</Link></li>
-              <li><Link href="/polls" className="hover:text-white hover:underline">Polls</Link></li>
-              <li><Link href="/submit" className="hover:text-white hover:underline">Submit Your Idea</Link></li>
+              <li><Link href="/stories" className="hover:text-white hover:underline">Stories</Link></li>
+              <li><Link href="/services" className="hover:text-white hover:underline">Services</Link></li>
+              <li><Link href="/submit" className="hover:text-white hover:underline">Submit</Link></li>
             </ul>
           </div>
           <div className="space-y-4">
