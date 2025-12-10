@@ -11,23 +11,36 @@ import { NewsletterForm } from "@/components/newsletter-form";
 
 export default function Home() {
 
-  const heroImage = PlaceHolderImages.find(p => p.id === 'hero-home');
-
   return (
     <div className="w-full">
       {/* Hero Section */}
       <section className="relative py-24 md:py-40 bg-slate-900 text-white">
-         {heroImage && (
-          <Image
-            src={heroImage.imageUrl}
-            alt={heroImage.description}
-            fill
-            className="object-cover z-0"
-            priority
-            data-ai-hint={heroImage.imageHint}
-          />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/70 to-blue-900/40 z-10"></div>
+        <div className="absolute inset-0 overflow-hidden z-0">
+            <svg width="100%" height="100%" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1440 550" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                    <radialGradient id="gradient1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                        <stop offset="0%" stop-color="hsla(217, 91%, 59%, 0.2)"/>
+                        <stop offset="100%" stop-color="hsla(217, 91%, 59%, 0)"/>
+                    </radialGradient>
+                    <radialGradient id="gradient2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                        <stop offset="0%" stop-color="hsla(224, 71%, 4%, 0.2)"/>
+                        <stop offset="100%" stop-color="hsla(224, 71%, 4%, 0)"/>
+                    </radialGradient>
+                </defs>
+                <rect width="1440" height="550" fill="url(#gradient2)"/>
+                <g opacity="0.4">
+                    <circle cx="300" cy="200" r="250" fill="url(#gradient1)"/>
+                    <circle cx="1100" cy="350" r="300" fill="url(#gradient1)"/>
+                    <rect x="100" y="450" width="80" height="100" fill="hsla(217, 50%, 30%, 0.3)"/>
+                    <rect x="200" y="400" width="120" height="150" fill="hsla(217, 50%, 30%, 0.4)"/>
+                    <rect x="340" y="480" width="50" height="70" fill="hsla(217, 50%, 30%, 0.2)"/>
+                    <rect x="410" y="350" width="100" height="200" fill="hsla(217, 50%, 30%, 0.5)"/>
+                    <rect x="900" y="420" width="150" height="130" fill="hsla(217, 50%, 30%, 0.35)"/>
+                    <rect x="1070" y="380" width="90" height="170" fill="hsla(217, 50%, 30%, 0.45)"/>
+                </g>
+            </svg>
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/70 to-transparent z-10"></div>
         <div className="container relative z-20 mx-auto px-4 md:px-6 text-center">
           <div className="max-w-4xl mx-auto space-y-6">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter font-headline text-white">
