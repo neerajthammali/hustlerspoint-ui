@@ -97,6 +97,7 @@ export type ServiceSpotlight = {
   service: string;
   link: string;
   imageId: string;
+  bio: string;
 };
 
 export type Poll = {
@@ -168,6 +169,7 @@ export const serviceSpotlight: ServiceSpotlight = {
   service: "UX/UI Design for Early-Stage Startups",
   link: "#",
   imageId: "spotlight-1",
+  bio: "Passionate about creating beautiful, intuitive interfaces that help early-stage startups convert users into lifelong customers.",
 };
 
 export const communityPoll: Poll = {
