@@ -3,7 +3,6 @@
 import Link from "next/link"
 import {
   Menu,
-  Sparkle,
   Sun,
   Moon,
 } from "lucide-react"
@@ -11,38 +10,41 @@ import {
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import React from "react"
+import { useIsMobile } from "@/hooks/use-mobile"
 
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/blog", label: "Articles" },
-  { href: "/stories", label: "Stories" },
-  { href: "/services", label: "Services" },
-  { href: "/polls", label: "Polls" },
-  { href: "/submit", label: "Submit" },
+    { href: "/blog", label: "Blog" },
+    { href: "/stories", label: "Hustler Stories" },
+    { href: "/services", label: "Boost Services" },
+    { href: "/polls", label: "Polls" },
+    { href: "/submit", label: "Submit Your Idea" },
 ]
 
 export function Header() {
+  const isMobile = useIsMobile();
   const [isMounted, setIsMounted] = React.useState(false);
   const [isDark, setIsDark] = React.useState(() => {
     if (typeof window === 'undefined') return false;
     return document.documentElement.classList.contains('dark');
-  }); 
+  });
 
   React.useEffect(() => {
     setIsMounted(true);
   }, []);
   
+  React.useEffect(() => {
+    if(isMounted && isMobile !== undefined){
+      document.documentElement.classList.toggle('dark', isDark);
+    }
+  },[isDark, isMounted, isMobile])
+
   const toggleTheme = () => {
-    const newIsDark = !isDark;
-    setIsDark(newIsDark);
-    document.documentElement.classList.toggle('dark', newIsDark);
+    setIsDark(prev => !prev);
   }
 
-  const themeIcon = isMounted ? (
+  const themeIcon = isMounted && isMobile !== undefined ? (
     isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />
-  ) : (
-    <Moon className="h-5 w-5" />
-  );
+  ) : null;
 
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur-sm">
@@ -52,8 +54,7 @@ export function Header() {
           className="mr-6 flex items-center gap-2"
           prefetch={false}
         >
-          <Sparkle className="h-6 w-6 text-primary" />
-          <span className="font-bold tracking-tight text-lg">Hustler Point</span>
+          <span className="font-headline text-lg font-extrabold tracking-tight text-primary">HustlersPoint</span>
         </Link>
         <nav className="hidden flex-1 items-center gap-6 md:flex">
           {navLinks.map((link) => (

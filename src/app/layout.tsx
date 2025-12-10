@@ -1,12 +1,50 @@
-import type { Metadata } from 'next';
-import './globals.css';
-import { Header } from '@/components/layout/header';
-import { Footer } from '@/components/layout/footer';
+import type { Metadata } from "next";
+import "./globals.css";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'Hustler Point',
-  description: 'A creator platform for writers, founders, and learners to share powerful insights and grow an audience.',
+  title: 'HustlersPoint - Real Hustlers, Real Insights',
+  description: 'A public website where you publish research, share stories, boost community talent, and let the audience decide what comes next through polls.',
+  openGraph: {
+    title: 'HustlersPoint - Real Hustlers, Real Insights',
+    description: 'Daily insights, stories and tools for hustlers, students and builders.',
+    url: 'https://hustlerspoint.com',
+    siteName: 'HustlersPoint',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'HustlersPoint - Real Hustlers, Real Insights',
+    description: 'Daily insights, stories and tools for hustlers, students and builders.',
+    images: ['/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/icons/icon-192.png',
+  },
+  manifest: '/manifest.json',
 };
 
 export default function RootLayout({
@@ -19,7 +57,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased bg-background text-foreground">
         <div className="flex min-h-screen flex-col">
