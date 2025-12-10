@@ -1,3 +1,100 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero",
+      "description": "Abstract office background with blue tones",
+      "imageUrl": "https://images.unsplash.com/photo-1668714341253-81139e265a19?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxvZmZpY2UlMjBhYnN0cmFjdHxlbnwwfHx8fDE3NjUzNDgyNjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "office abstract"
+    },
+    {
+      "id": "news1",
+      "description": "A person typing on a laptop in a modern cafe",
+      "imageUrl": "https://images.unsplash.com/photo-1535957998253-26ae1ef29506?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bGFwdG9wJTIwd29ya3xlbnwwfHx8fDE3NjUzMTc1MTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "laptop work"
+    },
+    {
+      "id": "news2",
+      "description": "A diverse team collaborating around a whiteboard",
+      "imageUrl": "https://images.unsplash.com/photo-1622675363311-3e1904dc1885?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0ZWFtJTIwbWVldGluZ3xlbnwwfHx8fDE3NjUzMTc1MTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "team meeting"
+    },
+    {
+      "id": "news3",
+      "description": "A close-up of a screen showing data analytics charts",
+      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkYXRhJTIwY2hhcnR8ZW58MHx8fHwxNzY1Mjg0MjYzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "data chart"
+    },
+    {
+      "id": "news4",
+      "description": "A hand sketching a new product design in a notebook",
+      "imageUrl": "https://images.unsplash.com/photo-1574852859542-1b41217a7815?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cHJvZHVjdCUyMGRlc2lnbnxlbnwwfHx8fDE3NjUzNDgyNjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "product design"
+    },
+    {
+      "id": "avatar1",
+      "description": "Profile picture of a smiling man with glasses",
+      "imageUrl": "https://images.unsplash.com/photo-1636377985931-898218afd306?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjUyODg5NjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "man portrait"
+    },
+    {
+      "id": "avatar2",
+      "description": "Profile picture of a professional woman in a blazer",
+      "imageUrl": "https://images.unsplash.com/photo-1546961329-78bef0414d7c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc2NTMyNTc1NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman portrait"
+    },
+    {
+      "id": "avatar3",
+      "description": "Profile picture of a person with curly hair",
+      "imageUrl": "https://images.unsplash.com/photo-1531123414780-f74242c2b052?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cGVyc29uJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzY1MzQwOTE4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person portrait"
+    },
+    {
+      "id": "avatar4",
+      "description": "Profile picture of a smiling individual",
+      "imageUrl": "https://images.unsplash.com/photo-1607529378676-a20456ee2f6b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwZXJzb24lMjBzbWlsaW5nfGVufDB8fHx8MTc2NTMyMjY2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person smiling"
+    },
+    {
+      "id": "avatar5",
+      "description": "Profile picture of a man in a suit",
+      "imageUrl": "https://images.unsplash.com/photo-1562788869-4ed32648eb72?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtYW4lMjBwcm9mZXNzaW9uYWx8ZW58MHx8fHwxNzY1MzM3MzQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "man professional"
+    },
+    {
+      "id": "avatar6",
+      "description": "Profile picture of a woman outdoors",
+      "imageUrl": "https://images.unsplash.com/photo-1535077698034-38c00741afab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx3b21hbiUyMG91dGRvb3JzfGVufDB8fHx8MTc2NTMxNzUxNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman outdoors"
+    },
+    {
+      "id": "group-banner1",
+      "description": "Abstract technological background for a SaaS group",
+      "imageUrl": "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx0ZWNoJTIwYWJzdHJhY3R8ZW58MHx8fHwxNzY1MjQ2ODE4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tech abstract"
+    },
+    {
+      "id": "group-banner2",
+      "description": "Creative and colorful banner for a marketing group",
+      "imageUrl": "https://images.unsplash.com/photo-1690983323458-ec4a54fc9552?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bWFya2V0aW5nJTIwYWJzdHJhY3R8ZW58MHx8fHwxNzY1MzQ4MjY5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "marketing abstract"
+    },
+    {
+      "id": "group-banner3",
+      "description": "Banner showing financial charts for an investing group",
+      "imageUrl": "https://images.unsplash.com/photo-1745509267945-b25cbb4d50ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxmaW5hbmNlJTIwY2hhcnR8ZW58MHx8fHwxNzY1MzQxNDkyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "finance chart"
+    },
+    {
+      "id": "post-image1",
+      "description": "An image of a city skyline at dusk attached to a post",
+      "imageUrl": "https://images.unsplash.com/photo-1502905704466-2690947baeee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2l0eSUyMHNreWxpbmV8ZW58MHx8fHwxNzY1MjQ1NzU1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "city skyline"
+    },
+    {
+      "id": "profile-banner",
+      "description": "A wide, abstract banner for a user profile background",
+      "imageUrl": "https://images.unsplash.com/photo-1649783467344-4dfdb3b55036?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxhYnN0cmFjdCUyMGJhbm5lcnxlbnwwfHx8fDE3NjUzMzY0OTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract banner"
+    }
+  ]
 }
