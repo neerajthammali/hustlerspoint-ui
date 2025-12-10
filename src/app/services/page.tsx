@@ -18,9 +18,6 @@ export default function ServicesPage() {
       <header className="mb-12">
         <h1 className="font-headline text-4xl md:text-5xl font-bold">Boost Services</h1>
         <p className="text-muted-foreground mt-2 md:text-lg">A directory of talented hustlers from our community. Hire them for your next project.</p>
-        <Button asChild className="mt-4">
-            <Link href="/submit">Submit Your Service</Link>
-        </Button>
       </header>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
