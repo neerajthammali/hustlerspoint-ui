@@ -11,42 +11,55 @@ import { NewsletterForm } from "@/components/newsletter-form";
 
 export default function Home() {
 
+  const heroImage = PlaceHolderImages.find(p => p.id === 'hero-home');
+
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="py-20 md:py-32">
-        <div className="container mx-auto px-4 md:px-6 text-center">
+      <section className="relative py-24 md:py-40 bg-slate-900 text-white">
+         {heroImage && (
+          <Image
+            src={heroImage.imageUrl}
+            alt={heroImage.description}
+            fill
+            className="object-cover z-0"
+            priority
+            data-ai-hint={heroImage.imageHint}
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/70 to-blue-900/40 z-10"></div>
+        <div className="container relative z-20 mx-auto px-4 md:px-6 text-center">
           <div className="max-w-4xl mx-auto space-y-6">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter font-headline">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter font-headline text-white">
               Real Stories, Real Insights.
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground">
+            <p className="text-lg md:text-xl text-slate-300">
               A community-driven platform for founders, builders, and creators to share and discover real-world business insights.
             </p>
             <div className="flex justify-center gap-4">
-                <Button asChild size="lg">
+                <Button asChild size="lg" className="bg-white text-slate-900 hover:bg-slate-200">
                     <Link href="/blog">Explore Content <ArrowRight className="ml-2" /></Link>
                 </Button>
-                <Button asChild variant="outline" size="lg">
+                <Button asChild variant="outline" size="lg" className="border-slate-400 text-white hover:bg-white/10 hover:text-white">
                     <Link href="/submit">Become a Contributor</Link>
                 </Button>
             </div>
           </div>
           <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="flex flex-col items-center gap-2">
-              <BookOpen className="w-8 h-8 text-primary" />
+            <div className="flex flex-col items-center gap-2 text-slate-200">
+              <BookOpen className="w-8 h-8 text-white/80" />
               <p className="text-2xl font-bold">5+</p>
-              <p className="text-muted-foreground">Articles Published</p>
+              <p className="text-sm">Articles Published</p>
             </div>
-            <div className="flex flex-col items-center gap-2">
-              <TrendingUp className="w-8 h-8 text-primary" />
+            <div className="flex flex-col items-center gap-2 text-slate-200">
+              <TrendingUp className="w-8 h-8 text-white/80" />
               <p className="text-2xl font-bold">12k+</p>
-              <p className="text-muted-foreground">Impressions</p>
+              <p className="text-sm">Impressions</p>
             </div>
-            <div className="flex flex-col items-center gap-2">
-              <Users className="w-8 h-8 text-primary" />
+            <div className="flex flex-col items-center gap-2 text-slate-200">
+              <Users className="w-8 h-8 text-white/80" />
               <p className="text-2xl font-bold">500+</p>
-              <p className="text-muted-foreground">Community Members</p>
+              <p className="text-sm">Community Members</p>
             </div>
           </div>
         </div>
