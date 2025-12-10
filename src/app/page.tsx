@@ -25,13 +25,14 @@ export default function Home() {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="relative w-full h-[50vh] min-h-[300px] max-h-[450px] flex items-center justify-center text-center text-white bg-primary">
+      <section className="relative w-full h-[50vh] min-h-[300px] max-h-[450px] flex items-center justify-center text-center text-white bg-background">
+        <div className="absolute inset-0 bg-primary/20 backdrop-blur-sm"></div>
         <div className="relative z-10 container px-4 md:px-6">
           <div className="max-w-3xl mx-auto space-y-4">
             <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
               Real Hustlers, Real Insights
             </h1>
-            <p className="text-lg md:text-xl text-primary-foreground/90">
+            <p className="text-lg md:text-xl text-primary-foreground/80">
               Research, stories, and community talent. You decide what comes
               next.
             </p>
@@ -56,7 +57,7 @@ export default function Home() {
                   );
                   return (
                     <Link href="/blog" key={item.id}>
-                      <Card className="h-full overflow-hidden transition-shadow hover:shadow-lg">
+                      <Card className="h-full overflow-hidden transition-all duration-300 hover:shadow-primary/20 hover:shadow-lg hover:-translate-y-1">
                         <div className="relative h-40 w-full">
                           {image && (
                             <Image
@@ -99,7 +100,7 @@ export default function Home() {
                       key={story.id}
                       className="block"
                     >
-                      <Card className="flex flex-col md:flex-row items-center gap-6 p-4 transition-shadow hover:shadow-lg">
+                      <Card className="flex flex-col md:flex-row items-center gap-6 p-4 transition-all duration-300 hover:shadow-primary/20 hover:shadow-lg hover:border-primary/50">
                         <div className="relative h-40 w-full md:w-1/3 flex-shrink-0 rounded-md overflow-hidden">
                           {image && (
                             <Image
@@ -119,7 +120,7 @@ export default function Home() {
                             {story.summary}
                           </p>
                           <div className="flex items-center gap-2 mt-4 text-sm">
-                            <Linkedin className="h-4 w-4" />
+                            <Linkedin className="h-4 w-4 text-primary" />
                             <span>
                               Story by <strong>{story.author}</strong>
                             </span>
@@ -137,15 +138,15 @@ export default function Home() {
           <aside className="space-y-8 lg:sticky top-24 self-start">
             {/* Service Spotlight */}
             <section>
-              <Card className="bg-secondary">
+              <Card className="bg-card border border-primary/20 shadow-lg shadow-primary/10">
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Mic className="h-5 w-5" />
+                  <CardTitle className="flex items-center gap-2 font-headline">
+                    <Mic className="h-5 w-5 text-primary" />
                     Today’s Hustler Spotlight
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="text-center">
-                  <Avatar className="w-24 h-24 mx-auto mb-4 border-4 border-background">
+                  <Avatar className="w-24 h-24 mx-auto mb-4 border-4 border-background ring-4 ring-primary">
                     <AvatarImage
                       src={
                         PlaceHolderImages.find(
@@ -176,7 +177,7 @@ export default function Home() {
             <section>
               <Card>
                 <CardHeader>
-                  <CardTitle>Community Poll</CardTitle>
+                  <CardTitle className="font-headline">Community Poll</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <h4 className="font-semibold">{communityPoll.question}</h4>
@@ -210,8 +211,8 @@ export default function Home() {
             <section>
               <Card>
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Rss className="h-5 w-5" />
+                  <CardTitle className="flex items-center gap-2 font-headline">
+                    <Rss className="h-5 w-5 text-primary" />
                     Join The Newsletter
                   </CardTitle>
                 </CardHeader>
