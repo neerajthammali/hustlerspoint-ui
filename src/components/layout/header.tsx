@@ -10,18 +10,16 @@ import {
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import React from "react"
-import { useIsMobile } from "@/hooks/use-mobile"
 
 const navLinks = [
     { href: "/blog", label: "Blog" },
-    { href: "/stories", label: "Hustler Stories" },
-    { href: "/services", label: "Boost Services" },
+    { href: "/stories", label: "Stories" },
+    { href: "/services", label: "Services" },
     { href: "/polls", label: "Polls" },
-    { href: "/submit", label: "Submit Your Idea" },
+    { href: "/submit", label: "Submit" },
 ]
 
 export function Header() {
-  const isMobile = useIsMobile();
   const [isMounted, setIsMounted] = React.useState(false);
   const [isDark, setIsDark] = React.useState(false);
 
@@ -31,10 +29,14 @@ export function Header() {
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     if (savedTheme) {
-      setIsDark(savedTheme === 'dark');
-    } else {
+      const isDarkTheme = savedTheme === 'dark';
+      if (isDarkTheme !== isDark) {
+        setIsDark(isDarkTheme);
+      }
+    } else if (prefersDark !== isDark) {
       setIsDark(prefersDark);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   React.useEffect(() => {
@@ -92,6 +94,15 @@ export function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right">
+              <div className="flex items-center justify-between mt-4">
+                  <Link
+                    href="/"
+                    className="flex items-center gap-2"
+                    prefetch={false}
+                  >
+                    <span className="font-headline text-lg font-bold tracking-tight">HustlersPoint</span>
+                  </Link>
+              </div>
               <nav className="grid gap-6 text-lg font-medium mt-8">
                 {navLinks.map((link) => (
                   <Link
