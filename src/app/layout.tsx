@@ -5,10 +5,10 @@ import { Footer } from "@/components/layout/footer";
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'HustlersPoint - Real Hustlers, Real Insights',
-  description: 'A public website where you publish research, share stories, boost community talent, and let the audience decide what comes next through polls.',
+  title: 'HustlersPoint - Real Stories, Real Insights',
+  description: 'A community-driven platform for founders, builders, and creators to share and discover real-world business insights.',
   openGraph: {
-    title: 'HustlersPoint - Real Hustlers, Real Insights',
+    title: 'HustlersPoint - Real Stories, Real Insights',
     description: 'Daily insights, stories and tools for hustlers, students and builders.',
     url: 'https://hustlerspoint.com',
     siteName: 'HustlersPoint',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'HustlersPoint - Real Hustlers, Real Insights',
+    title: 'HustlersPoint - Real Stories, Real Insights',
     description: 'Daily insights, stories and tools for hustlers, students and builders.',
     images: ['/og-image.png'],
   },

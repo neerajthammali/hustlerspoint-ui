@@ -9,7 +9,7 @@ export type EditorPick = {
 }
 
 export type Testimonial = {
-  id: string;
+  id:string;
   quote: string;
   name: string;
   role: string;
@@ -18,29 +18,29 @@ export type Testimonial = {
 
 export const editorPicks: EditorPick[] = [
   {
-    id: "pick1",
-    title: "How a Poor Marwadi Boy Built Haldiram's",
-    category: "Brands & Inspiration",
-    description: "The inspiring journey of Prabhu Dayal Agrawal—from a small-town sweets maker in Bikaner to building Haldiram's, a global brand.",
-    tags: ["Entrepreneurship", "India", "Business Story"],
+    id: "story1",
+    title: "How a Bootstrapped Founder Built a $1M ARR Business",
+    category: "Hustler Story",
+    description: "The inspiring journey of Prabhu Dayal Agrawal—from a small-town sweets maker in Bikaner to building a global brand.",
+    tags: ["Entrepreneurship", "SaaS", "Bootstrapping"],
     imageId: "story-1",
     date: "October 11, 2025",
   },
   {
     id: "pick2",
-    title: "Lovable: A Brand Changing How the World Codes",
+    title: "The AI Tools That Are Changing Software Development",
     category: "Tech & AI",
-    description: "How Lovable is redefining creativity in code—making building things online feel human again.",
-    tags: ["AI", "Coding", "Startup"],
+    description: "An in-depth look at how AI coding assistants and generative models are reshaping the way we build software.",
+    tags: ["AI", "Development", "Productivity"],
     imageId: "story-2",
     date: "October 11, 2025",
   },
   {
-    id: "pick3",
-    title: "Jamnagar Refinery! Generational Wealth of Ambani's",
+    id: "res1",
+    title: "The Architecture of a $1B Oil Refinery",
     category: "Business & Industry",
-    description: "Explore the massive Jamnagar Refinery, the world's largest oil complex, and how it became the backbone of Ambani's empire.",
-    tags: ["Oil Refinery", "Ambani", "India"],
+    description: "Explore the massive Jamnagar Refinery, the world's largest oil complex, and how it became the backbone of an empire.",
+    tags: ["Infrastructure", "Business", "Analysis"],
     imageId: "research-1",
     date: "February 19, 2025"
   }
@@ -49,7 +49,7 @@ export const editorPicks: EditorPick[] = [
 export const testimonials: Testimonial[] = [
   {
     id: "test1",
-    quote: "Hustler's Point is my go-to for no-fluff, actionable advice. The case studies on startup growth have been a game-changer for my own venture.",
+    quote: "HustlersPoint is my go-to for no-fluff, actionable advice. The case studies on startup growth have been a game-changer for my own venture.",
     name: "Alex Johnson",
     role: "SaaS Founder",
     avatarId: "avatar-1",
@@ -114,19 +114,19 @@ export type Comment = {
 export const researchHighlights: Research[] = [
   {
     id: "res1",
-    title: "The Rise of CivilTech: A 2024 Report",
+    title: "The Rise of CivilTech: A 2024 Market Report",
     category: "CivilTech",
     imageId: "research-1",
   },
   {
     id: "res2",
-    title: "Top 5 SaaS Tools for Bootstrapped Founders",
+    title: "Top 5 SaaS Tools for Bootstrapped Founders in 2025",
     category: "SaaS/Tools",
     imageId: "research-2",
   },
   {
     id: "res3",
-    title: "A New Productivity Framework for Deep Work",
+    title: "The Deep Work Framework for Modern Professionals",
     category: "Productivity",
     imageId: "research-3",
   },
@@ -140,17 +140,17 @@ export const hustlerStories: HustlerStory[] = [
       "Jane Doe shares her journey of identifying a small, underserved market and building a solution that quickly gained traction.",
     author: "Jane Doe",
     authorLink: "#",
-    takeaway: "Hyper-focus on a specific customer pain point is key.",
+    takeaway: "Hyper-focus on a specific customer pain point is key to early traction and product-market fit.",
     imageId: "story-1",
   },
   {
     id: "story2",
-    title: "How I Landed My First 5 Freelance Clients on LinkedIn",
+    title: "How I Landed My First 5 High-Ticket Clients on LinkedIn",
     summary:
       "John Smith breaks down his strategy for using content and targeted outreach to build his freelance business from scratch.",
     author: "John Smith",
     authorLink: "#",
-    takeaway: "Consistency and providing value upfront builds trust.",
+    takeaway: "Consistency in providing value upfront builds trust and attracts high-quality clients.",
     imageId: "story-2",
   },
 ];
@@ -158,18 +158,18 @@ export const hustlerStories: HustlerStory[] = [
 export const serviceSpotlight: ServiceSpotlight = {
   id: "spot1",
   name: "Maria Garcia",
-  service: "UX/UI Design for Startups",
+  service: "UX/UI Design for Early-Stage Startups",
   link: "#",
   imageId: "spotlight-1",
 };
 
 export const communityPoll: Poll = {
   id: "poll1",
-  question: "Which topic should we cover next in a deep-dive article?",
+  question: "Which deep-dive should we publish next?",
   options: [
-    { text: "AI in Marketing", votes: 45 },
-    { text: "The Future of Remote Work", votes: 30 },
-    { text: "Bootstrapping vs. VC Funding", votes: 25 },
+    { text: "AI in B2B Marketing", votes: 45 },
+    { text: "The Future of Remote Team Collaboration", votes: 30 },
+    { text: "Bootstrapping vs. VC Funding: A Founder's Guide", votes: 25 },
   ],
 };
 

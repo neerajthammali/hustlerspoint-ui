@@ -16,19 +16,18 @@ export default function Home() {
       <section className="py-20 md:py-32">
         <div className="container mx-auto px-4 md:px-6 text-center">
           <div className="max-w-4xl mx-auto space-y-6">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter">
-              Publish Your Ideas. Build Your Future.
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter font-headline">
+              Real Stories, Real Insights.
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground">
-              A creator platform for writers, founders, and learners to share powerful
-              insights and grow an audience.
+              A community-driven platform for founders, builders, and creators to share and discover real-world business insights.
             </p>
             <div className="flex justify-center gap-4">
                 <Button asChild size="lg">
-                    <Link href="/blog">Explore Articles <ArrowRight className="ml-2" /></Link>
+                    <Link href="/blog">Explore Content <ArrowRight className="ml-2" /></Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
-                    <Link href="#">Learn More</Link>
+                    <Link href="/submit">Become a Contributor</Link>
                 </Button>
             </div>
           </div>
@@ -56,8 +55,8 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold">Editor's Picks</h2>
-            <p className="text-muted-foreground mt-2">Hand-picked articles from our editors to get you started.</p>
+            <h2 className="text-3xl md:text-4xl font-bold font-headline">Editor's Picks</h2>
+            <p className="text-muted-foreground mt-2">Curated content to kickstart your journey.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {editorPicks.map((pick) => {
@@ -74,7 +73,7 @@ export default function Home() {
                   </Link>
                   <CardHeader>
                     <p className="text-sm text-primary font-medium">{pick.category}</p>
-                    <CardTitle className="text-xl font-semibold leading-tight"><Link href={postUrl}>{pick.title}</Link></CardTitle>
+                    <CardTitle className="text-xl font-semibold leading-tight font-headline"><Link href={postUrl}>{pick.title}</Link></CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground text-sm line-clamp-3">{pick.description}</p>
@@ -88,7 +87,7 @@ export default function Home() {
           </div>
            <div className="text-center mt-12">
                 <Button asChild variant="outline">
-                    <Link href="/blog">View All Articles</Link>
+                    <Link href="/blog">View All Content</Link>
                 </Button>
             </div>
         </div>
@@ -98,7 +97,7 @@ export default function Home() {
       <section className="py-16 md:py-24">
          <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold">What They're Saying</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-headline">From the Community</h2>
             <p className="text-muted-foreground mt-2">Testimonials from our readers and community members.</p>
           </div>
            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -126,11 +125,13 @@ export default function Home() {
       {/* Join the Community */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold">Join the Community</h2>
-            <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">Connect with fellow hustlers, founders, and creators. Share ideas, get feedback, and grow together.</p>
+            <h2 className="text-3xl md:text-4xl font-bold font-headline">Become a Contributor</h2>
+            <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">Share your story, spotlight your service, or request an article. We review every submission.</p>
             <div className="flex justify-center gap-4 mt-8">
-                <Button size="lg">Join Discord</Button>
-                <Button size="lg" variant="outline">Join WhatsApp</Button>
+                <Button asChild size="lg">
+                    <Link href="/submit">Submit Your Idea</Link>
+                </Button>
+                <Button size="lg" variant="outline">Join our Discord</Button>
             </div>
         </div>
       </section>
