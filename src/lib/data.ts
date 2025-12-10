@@ -197,4 +197,4 @@ export const comments: Comment[] = [
         date: "Feb 21, 2025",
         avatarId: "avatar-2",
     }
-]
+];
