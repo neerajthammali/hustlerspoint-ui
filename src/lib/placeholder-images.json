@@ -3,55 +3,55 @@
     {
       "id": "hero-home",
       "description": "A bustling cityscape with a blue overlay, representing the energy of hustlers.",
-      "imageUrl": "https://images.unsplash.com/photo-1604955123743-3bcf76e1f486?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjaXR5JTIwYnVzaW5lc3N8ZW58MHx8fHwxNzY1MzYwNjU4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/hero-home.jpg",
       "imageHint": "city business"
     },
     {
       "id": "research-1",
       "description": "A close-up of a person analyzing data on a screen.",
-      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxkYXRhJTIwYW5hbHlzaXN8ZW58MHx8fHwxNzY1MzAzMDI5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/research-1.jpg",
       "imageHint": "data analysis"
     },
     {
       "id": "research-2",
       "description": "A whiteboard covered in complex diagrams and formulas.",
-      "imageUrl": "https://images.unsplash.com/photo-1759884247160-27b8465544b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3aGl0ZWJvYXJkJTIwc3RyYXRlZ3l8ZW58MHx8fHwxNzY1MzQ5MjEzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/research-2.jpg",
       "imageHint": "whiteboard strategy"
     },
     {
       "id": "research-3",
       "description": "A collection of books and notes on a desk.",
-      "imageUrl": "https://images.unsplash.com/photo-1591382696684-38c427c7547a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c3R1ZHklMjBkZXNrfGVufDB8fHx8MTc2NTI5NzM3N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/research-3.jpg",
       "imageHint": "study desk"
     },
     {
       "id": "story-1",
       "description": "A person looking thoughtfully out of a window.",
-      "imageUrl": "https://images.unsplash.com/photo-1518644730709-0835105d9daa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwZXJzb24lMjB0aGlua2luZ3xlbnwwfHx8fDE3NjUyOTIwNjR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/story-1.jpg",
       "imageHint": "person thinking"
     },
     {
       "id": "story-2",
       "description": "Two people having a discussion in a coffee shop.",
-      "imageUrl": "https://images.unsplash.com/photo-1507537362848-9c7e70b7b5c1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwZW9wbGUlMjB0YWxraW5nfGVufDB8fHx8MTc2NTI2NTcyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/story-2.jpg",
       "imageHint": "people talking"
     },
     {
       "id": "spotlight-1",
       "description": "Portrait of a confident young entrepreneur.",
-      "imageUrl": "https://images.unsplash.com/photo-1531123414780-f74242c2b052?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cGVyc29uJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzY1MzQwOTE4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/spotlight-1.jpg",
       "imageHint": "person portrait"
     },
     {
       "id": "avatar-1",
       "description": "A smiling person's profile picture.",
-      "imageUrl": "https://images.unsplash.com/photo-1484863137850-59afcfe05386?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwZXJzb24lMjBzbWlsaW5nfGVufDB8fHx8MTc2NTMyMjY2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/avatar-1.jpg",
       "imageHint": "person smiling"
     },
     {
       "id": "avatar-2",
       "description": "A professional-looking person's profile picture.",
-      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjUzNjA2NTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/avatar-2.jpg",
       "imageHint": "professional portrait"
     }
   ]
