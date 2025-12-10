@@ -7,6 +7,7 @@ import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { ArrowRight, BookOpen, TrendingUp, Users, Linkedin } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { NewsletterForm } from "@/components/newsletter-form";
 
 export default function Home() {
 
@@ -182,17 +183,18 @@ export default function Home() {
         </div>
       </section>
       
-      {/* Join the Community */}
+      {/* Newsletter Section */}
       <section className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold font-headline">Become a Contributor</h2>
-            <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">Share your story, spotlight your service, or request an article. We review every submission.</p>
-            <div className="flex justify-center gap-4 mt-8">
-                <Button asChild size="lg">
-                    <Link href="/submit">Submit Your Idea</Link>
-                </Button>
-                <Button size="lg" variant="outline">Join our Discord</Button>
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold font-headline">Stay in the Loop</h2>
+            <p className="text-muted-foreground mt-2">
+              Subscribe to our newsletter to get weekly insights, stories, and community updates delivered right to your inbox.
+            </p>
+            <div className="mt-8 max-w-md mx-auto">
+              <NewsletterForm />
             </div>
+          </div>
         </div>
       </section>
     </div>

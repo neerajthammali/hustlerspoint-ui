@@ -3,7 +3,7 @@
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
-import { toast } from "@/hooks/use-toast"
+import { useToast } from "@/hooks/use-toast"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -21,6 +21,7 @@ const formSchema = z.object({
 })
 
 export function NewsletterForm() {
+  const { toast } = useToast()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -50,12 +51,12 @@ export function NewsletterForm() {
                     <Input 
                       placeholder="Enter your email" 
                       {...field} 
-                      className="pr-10 bg-slate-800 border-slate-700 text-slate-50 focus-visible:ring-primary focus-visible:ring-2"
+                      className="pr-12 text-base"
                     />
                     <Button 
                       type="submit" 
                       size="icon" 
-                      className="absolute top-1/2 right-1 -translate-y-1/2 h-8 w-8 bg-primary text-primary-foreground hover:bg-primary/90"
+                      className="absolute top-1/2 right-1.5 -translate-y-1/2 h-8 w-9 bg-primary text-primary-foreground hover:bg-primary/90"
                       disabled={form.formState.isSubmitting}
                     >
                       <Send className="h-4 w-4" />
