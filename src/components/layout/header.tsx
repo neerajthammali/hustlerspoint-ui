@@ -8,7 +8,7 @@ import {
 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import React from "react"
 
 const navLinks = [
@@ -94,6 +94,8 @@ export function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right">
+              <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+              <SheetDescription className="sr-only">A menu of navigation links for mobile devices.</SheetDescription>
               <div className="flex items-center justify-between mt-4">
                   <Link
                     href="/"
