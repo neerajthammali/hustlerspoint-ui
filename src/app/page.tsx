@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { hustlerStories } from "@/lib/data";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { ArrowRight, BookOpen, TrendingUp, Users, Linkedin } from "lucide-react";
 import { NewsletterForm } from "@/components/newsletter-form";
@@ -54,7 +53,7 @@ export default function Home() {
             <p className="text-lg md:text-xl text-slate-300">
               A community-driven platform for founders, builders, and creators to share and discover real-world business insights.
             </p>
-            <div className="flex justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button asChild size="lg" variant="default">
                     <Link href="/blog">Explore Content</Link>
                 </Button>
