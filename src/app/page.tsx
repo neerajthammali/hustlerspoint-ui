@@ -62,9 +62,10 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {editorPicks.map((pick) => {
               const image = PlaceHolderImages.find(p => p.id === pick.imageId);
+              const postUrl = pick.category === "Brands & Inspiration" || pick.category === "Business & Industry" ? `/stories/${pick.id}` : `/blog/${pick.id}`;
               return (
                 <Card key={pick.id} className="overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
-                  <Link href="#" className="block">
+                  <Link href={postUrl} className="block">
                     <div className="relative h-48 w-full">
                       {image && (
                         <Image src={image.imageUrl} alt={image.description} fill className="object-cover" data-ai-hint={image.imageHint} />
@@ -73,7 +74,7 @@ export default function Home() {
                   </Link>
                   <CardHeader>
                     <p className="text-sm text-primary font-medium">{pick.category}</p>
-                    <CardTitle className="text-xl font-semibold leading-tight">{pick.title}</CardTitle>
+                    <CardTitle className="text-xl font-semibold leading-tight"><Link href={postUrl}>{pick.title}</Link></CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground text-sm line-clamp-3">{pick.description}</p>

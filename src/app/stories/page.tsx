@@ -22,7 +22,7 @@ export default function StoriesPage() {
             const image = PlaceHolderImages.find(p => p.id === story.imageId);
             return (
                 <Card key={story.id} className="flex flex-col md:flex-row overflow-hidden transition-shadow hover:shadow-xl">
-                    <div className="relative w-full md:w-1/3 h-64 md:h-auto">
+                    <Link href={`/stories/${story.id}`} className="relative w-full md:w-1/3 h-64 md:h-auto">
                         {image && (
                             <Image
                                 src={image.imageUrl}
@@ -32,11 +32,13 @@ export default function StoriesPage() {
                                 data-ai-hint={image.imageHint}
                             />
                         )}
-                    </div>
+                    </Link>
                     <div className="flex flex-col justify-between p-6 md:w-2/3">
                         <div>
                             <CardHeader className="p-0">
-                                <CardTitle className="font-headline text-2xl mb-2">{story.title}</CardTitle>
+                                <CardTitle className="font-headline text-2xl mb-2">
+                                  <Link href={`/stories/${story.id}`}>{story.title}</Link>
+                                </CardTitle>
                             </CardHeader>
                             <CardContent className="p-0">
                                 <p className="text-muted-foreground mb-4">{story.summary}</p>
@@ -52,7 +54,7 @@ export default function StoriesPage() {
                                 <span>Story by <a href={story.authorLink} target="_blank" rel="noopener noreferrer" className="font-bold hover:underline">{story.author}</a></span>
                             </div>
                             <Button asChild variant="link">
-                                <Link href="#">Read Full Analysis <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                                <Link href={`/stories/${story.id}`}>Read Full Analysis <ArrowRight className="ml-2 h-4 w-4" /></Link>
                             </Button>
                         </CardFooter>
                     </div>
