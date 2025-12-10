@@ -154,34 +154,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* What They're Saying */}
-      <section className="py-16 md:py-24 bg-secondary/30">
-         <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold font-headline">From the Community</h2>
-            <p className="text-muted-foreground mt-2">Testimonials from our readers and community members.</p>
-          </div>
-           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {testimonials.map(testimonial => (
-                <Card key={testimonial.id} className="p-6 bg-background border-0 shadow-none">
-                  <CardContent className="p-0">
-                    <p className="text-muted-foreground mb-6">"{testimonial.quote}"</p>
-                    <div className="flex items-center gap-4">
-                       <Avatar className="w-12 h-12">
-                          <AvatarImage src={PlaceHolderImages.find(p => p.id === testimonial.avatarId)?.imageUrl} alt={testimonial.name} data-ai-hint={PlaceHolderImages.find(p => p.id === testimonial.avatarId)?.imageHint}/>
-                          <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
-                        </Avatar>
-                        <div>
-                          <p className="font-semibold">{testimonial.name}</p>
-                          <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                        </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-           </div>
-        </div>
-      </section>
       
       {/* Newsletter Section */}
       <section className="py-16 md:py-24 bg-background">
