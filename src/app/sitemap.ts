@@ -9,72 +9,72 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const postEntries: MetadataRoute.Sitemap = posts.map(({ id, date }) => ({
     url: `${URL}/blog/${id}`,
-    lastModified: new Date(date),
+    lastModified: new Date(date).toISOString().split('T')[0],
   }));
 
   const storyEntries: MetadataRoute.Sitemap = stories.map(({ id, date }) => ({
     url: `${URL}/stories/${id}`,
-    lastModified: new Date(date),
+    lastModified: new Date(date).toISOString().split('T')[0],
   }));
 
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: URL,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
+      lastModified: '2024-07-26',
+      changeFrequency: 'weekly',
       priority: 1,
     },
     {
       url: `${URL}/blog`,
-      lastModified: new Date(),
+      lastModified: '2024-07-26',
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${URL}/stories`,
-      lastModified: new Date(),
+      lastModified: '2024-07-26',
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${URL}/services`,
-      lastModified: new Date(),
+      lastModified: '2024-07-26',
       changeFrequency: 'monthly',
       priority: 0.5,
     },
      {
       url: `${URL}/polls`,
-      lastModified: new Date(),
+      lastModified: '2024-07-26',
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: `${URL}/submit`,
-      lastModified: new Date(),
+      lastModified: '2024-07-26',
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
       url: `${URL}/about`,
-      lastModified: new Date(),
+      lastModified: '2024-07-26',
       changeFrequency: 'monthly',
       priority: 0.3,
     },
     {
       url: `${URL}/contact`,
-      lastModified: new Date(),
+      lastModified: '2024-07-26',
       changeFrequency: 'monthly',
       priority: 0.3,
     },
     {
       url: `${URL}/privacy`,
-      lastModified: new Date(),
+      lastModified: '2024-07-26',
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
       url: `${URL}/terms`,
-      lastModified: new Date(),
+      lastModified: '2024-07-26',
       changeFrequency: 'yearly',
       priority: 0.3,
     },
