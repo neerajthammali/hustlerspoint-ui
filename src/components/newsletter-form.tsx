@@ -50,12 +50,12 @@ export function NewsletterForm() {
                     <Input 
                       placeholder="Enter your email" 
                       {...field} 
-                      className="pr-10 bg-secondary border-0 focus-visible:ring-primary focus-visible:ring-2"
+                      className="pr-10 bg-slate-800 border-slate-700 text-slate-50 focus-visible:ring-primary focus-visible:ring-2"
                     />
                     <Button 
                       type="submit" 
                       size="icon" 
-                      className="absolute top-1/2 right-1 -translate-y-1/2 h-8 w-8 bg-accent text-accent-foreground hover:bg-accent/90"
+                      className="absolute top-1/2 right-1 -translate-y-1/2 h-8 w-8 bg-primary text-primary-foreground hover:bg-primary/90"
                       disabled={form.formState.isSubmitting}
                     >
                       <Send className="h-4 w-4" />
