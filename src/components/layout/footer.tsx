@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <footer className="border-t bg-secondary/50">
       <div className="container px-4 md:px-6 py-12">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           <div className="space-y-3">
              <Link
               href="/"
@@ -22,18 +22,18 @@ export function Footer() {
             <h4 className="font-semibold">Navigation</h4>
             <ul className="space-y-2 text-sm">
               <li><Link href="/blog" className="text-muted-foreground hover:text-foreground">Blog</Link></li>
-              <li><Link href="/stories" className="text-muted-foreground hover:text-foreground">Hustler Stories</Link></li>
+              <li><Link href="/stories" className="text-muted-foreground hover:text-foreground">Stories</Link></li>
               <li><Link href="/services" className="text-muted-foreground hover:text-foreground">Boost Services</Link></li>
               <li><Link href="/polls" className="text-muted-foreground hover:text-foreground">Polls</Link></li>
+              <li><Link href="/submit" className="text-muted-foreground hover:text-foreground">Submit Your Idea</Link></li>
             </ul>
           </div>
           <div className="space-y-3">
-            <h4 className="font-semibold">Community</h4>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/submit" className="text-muted-foreground hover:text-foreground">Submit Your Idea</Link></li>
-              <li><Link href="#" className="text-muted-foreground hover:text-foreground">About Us</Link></li>
-              <li><Link href="#" className="text-muted-foreground hover:text-foreground">Contact</Link></li>
-            </ul>
+            <h4 className="font-semibold">Stay Updated</h4>
+            <p className="text-sm text-muted-foreground">
+              Subscribe to our newsletter for weekly insights and polls.
+            </p>
+            <NewsletterForm />
           </div>
         </div>
         <div className="mt-8 border-t pt-6 text-center text-sm text-muted-foreground">
