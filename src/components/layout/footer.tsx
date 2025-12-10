@@ -27,21 +27,20 @@ export function Footer() {
             </ul>
           </div>
           <div className="space-y-4">
-            <h4 className="font-headline text-lg font-bold text-white">Stay Updated</h4>
-            <p className="text-sm">
-              Subscribe to our newsletter for weekly insights and polls.
-            </p>
-            <NewsletterForm />
+            <h4 className="font-headline text-lg font-bold text-white">Pages</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="#" className="hover:text-white hover:underline">About</Link></li>
+              <li><Link href="#" className="hover:text-white hover:underline">Contact</Link></li>
+              <li><Link href="/submit" className="hovertext-white hover:underline">Write For Us</Link></li>
+            </ul>
           </div>
         </div>
       </div>
        <div className="bg-slate-950/50">
         <div className="container px-4 md:px-6 py-4 flex flex-wrap justify-center sm:justify-between items-center text-sm">
             <div className="flex gap-x-6 gap-y-2 flex-wrap justify-center mb-2 sm:mb-0">
-                <Link href="#" className="hover:text-white">About</Link>
-                <Link href="#" className="hover:text-white">Contact</Link>
                 <Link href="#" className="hover:text-white">Privacy Policy</Link>
-                <Link href="/submit" className="hover:text-white">Write For Us</Link>
+                <Link href="#" className="hover:text-white">Terms of Service</Link>
             </div>
             <p className="text-slate-400 text-center sm:text-right">
               © {new Date().getFullYear()} HustlersPoint.
