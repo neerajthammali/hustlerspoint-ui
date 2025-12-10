@@ -103,6 +103,14 @@ export type Poll = {
   options: { text: string; votes: number }[];
 };
 
+export type Comment = {
+  id: string;
+  name: string;
+  text: string;
+  date: string;
+  avatarId: string;
+};
+
 export const researchHighlights: Research[] = [
   {
     id: "res1",
@@ -164,3 +172,20 @@ export const communityPoll: Poll = {
     { text: "Bootstrapping vs. VC Funding", votes: 25 },
   ],
 };
+
+export const comments: Comment[] = [
+    {
+        id: "comment1",
+        name: "Alex Johnson",
+        text: "Great insights! I've been struggling with this exact problem. The point about focusing on a niche is so true. It's easy to get distracted by trying to be everything to everyone.",
+        date: "Feb 20, 2025",
+        avatarId: "avatar-1",
+    },
+    {
+        id: "comment2",
+        name: "Samantha Lee",
+        text: "This is a fantastic breakdown. I'm going to try implementing the LinkedIn strategy for my own freelance business. Thanks for sharing!",
+        date: "Feb 21, 2025",
+        avatarId: "avatar-2",
+    }
+]
