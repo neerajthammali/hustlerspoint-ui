@@ -78,6 +78,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.3,
     },
+     {
+      url: `${URL}/sitemap`,
+      lastModified: '2024-07-26',
+      changeFrequency: 'monthly',
+      priority: 0.3,
+    },
   ];
 
   return [
