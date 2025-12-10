@@ -2,13 +2,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { editorPicks, hustlerStories } from "@/lib/data";
+import { hustlerStories } from "@/lib/data";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { ArrowRight, BookOpen, TrendingUp, Users, Linkedin } from "lucide-react";
 import { NewsletterForm } from "@/components/newsletter-form";
 import { Badge } from "@/components/ui/badge";
+import { getSortedPostsData } from "@/lib/posts";
 
 export default function Home() {
+  const editorPicksData = getSortedPostsData('blog').slice(0, 2);
+  const editorStory = getSortedPostsData('stories').slice(0, 1).map(s => ({...s, category: "Hustler Story"}))[0];
+  const editorPicks = [...editorPicksData, editorStory];
+
+  const stories = getSortedPostsData('stories');
 
   return (
     <div className="w-full">
@@ -50,7 +56,7 @@ export default function Home() {
             </p>
             <div className="flex justify-center gap-4">
                 <Button asChild size="lg" variant="default">
-                    <Link href="/blog">Explore Content <ArrowRight className="ml-2" /></Link>
+                    <Link href="/blog">Explore Content</Link>
                 </Button>
                 <Button asChild variant="secondary" size="lg">
                     <Link href="/submit">Become a Contributor</Link>
@@ -102,10 +108,10 @@ export default function Home() {
                     <CardTitle className="text-xl font-semibold leading-tight font-headline"><Link href={postUrl}>{pick.title}</Link></CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground text-sm line-clamp-3">{pick.description}</p>
+                    <p className="text-muted-foreground text-sm line-clamp-3">{pick.excerpt}</p>
                   </CardContent>
                   <CardFooter className="flex flex-wrap gap-2 text-xs">
-                     {pick.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
+                     {pick.tags && pick.tags.map((tag:string) => <Badge key={tag} variant="secondary">{tag}</Badge>)}
                   </CardFooter>
                 </Card>
               )
@@ -127,7 +133,7 @@ export default function Home() {
             <p className="text-muted-foreground mt-2">Real stories from the trenches of entrepreneurship.</p>
           </div>
           <div className="space-y-12">
-            {hustlerStories.map((story) => {
+            {stories.map((story) => {
               const image = PlaceHolderImages.find(p => p.id === story.imageId);
               return (
                 <Card key={story.id} className="grid md:grid-cols-2 overflow-hidden transition-shadow hover:shadow-xl border-0 md:border">
@@ -135,7 +141,7 @@ export default function Home() {
                     {image && (
                       <Image
                         src={image.imageUrl}
-                        alt={image.description}
+                        alt={story.title}
                         fill
                         className="object-cover"
                         data-ai-hint={image.imageHint}
@@ -150,7 +156,7 @@ export default function Home() {
                         </CardTitle>
                       </CardHeader>
                       <CardContent className="p-0">
-                        <p className="text-muted-foreground mb-4 line-clamp-3">{story.summary}</p>
+                        <p className="text-muted-foreground mb-4 line-clamp-3">{story.excerpt}</p>
                         <div className="bg-secondary p-4 rounded-md text-sm">
                           <h4 className="font-semibold mb-1">Learning Takeaway:</h4>
                           <p className="italic text-muted-foreground">"{story.takeaway}"</p>

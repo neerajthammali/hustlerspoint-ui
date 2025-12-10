@@ -4,9 +4,11 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Linkedin } from "lucide-react";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { hustlerStories } from "@/lib/data";
+import { getSortedPostsData } from "@/lib/posts";
 
 export default function StoriesPage() {
+  const stories = getSortedPostsData('stories');
+  
   return (
     <div className="container mx-auto px-4 md:px-6 py-12">
       <header className="text-center mb-12">
@@ -18,7 +20,7 @@ export default function StoriesPage() {
       </header>
 
       <div className="space-y-12">
-        {hustlerStories.map(story => {
+        {stories.map(story => {
             const image = PlaceHolderImages.find(p => p.id === story.imageId);
             return (
                 <Card key={story.id} className="grid md:grid-cols-2 overflow-hidden transition-shadow hover:shadow-xl border-0 md:border">
@@ -26,7 +28,7 @@ export default function StoriesPage() {
                         {image && (
                             <Image
                                 src={image.imageUrl}
-                                alt={image.description}
+                                alt={story.title}
                                 fill
                                 className="object-cover"
                                 data-ai-hint={image.imageHint}
@@ -41,7 +43,7 @@ export default function StoriesPage() {
                                 </CardTitle>
                             </CardHeader>
                             <CardContent className="p-0">
-                                <p className="text-muted-foreground mb-4 line-clamp-3">{story.summary}</p>
+                                <p className="text-muted-foreground mb-4 line-clamp-3">{story.excerpt}</p>
                                 <div className="bg-secondary p-4 rounded-md text-sm">
                                     <h4 className="font-semibold mb-1">Learning Takeaway:</h4>
                                     <p className="italic text-muted-foreground">"{story.takeaway}"</p>

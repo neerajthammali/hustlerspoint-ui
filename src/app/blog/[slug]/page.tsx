@@ -1,28 +1,50 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { researchHighlights, hustlerStories, communityPoll, comments } from "@/lib/data";
+import { communityPoll, comments } from "@/lib/data";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, MessageSquare } from "lucide-react";
+import { MessageSquare } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
+import { getPostData, getSortedPostsData, getAllPostIds } from "@/lib/posts";
+import { format } from "date-fns";
+import type { Metadata } from 'next';
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const allPosts = [...researchHighlights, ...hustlerStories.map(s => ({...s, category: "Hustler Stories"}))];
-  const post = allPosts.find((p) => p.id === params.slug);
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const post = await getPostData('blog', params.slug);
+  if (!post) {
+    return {
+      title: 'Post Not Found'
+    }
+  }
+  return {
+    title: post.title,
+    description: post.excerpt,
+  }
+}
 
+export async function generateStaticParams() {
+  const paths = getAllPostIds('blog');
+  return paths;
+}
+
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+  const post = await getPostData('blog', params.slug);
+  
   if (!post) {
     notFound();
   }
 
+  const allPosts = getSortedPostsData('blog');
   const image = PlaceHolderImages.find(p => p.id === post.imageId);
-  const popularPosts = [...hustlerStories, ...researchHighlights].filter(p => p.id !== post.id).slice(0, 3);
+  const popularPostsData = getSortedPostsData('stories');
+  const popularPosts = [...allPosts, ...popularPostsData].filter(p => p.id !== post.id).slice(0, 3);
   const poll = communityPoll;
   const totalVotes = poll.options.reduce((acc, option) => acc + option.votes, 0);
 
@@ -31,16 +53,16 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         <div className="grid lg:grid-cols-3 gap-12">
             <article className="lg:col-span-2">
               <header className="mb-8">
-                <Badge variant="secondary" className="mb-4">{post.category}</Badge>
+                {post.category && <Badge variant="secondary" className="mb-4">{post.category}</Badge>}
                 <h1 className="font-headline text-4xl md:text-5xl font-bold leading-tight mb-4">{post.title}</h1>
-                <p className="text-muted-foreground text-lg">Posted on Feb 19, 2025</p>
+                <p className="text-muted-foreground text-lg">Posted on {format(new Date(post.date), 'PPP')}</p>
               </header>
 
               {image && (
                 <div className="relative w-full h-96 mb-8 rounded-lg overflow-hidden">
                   <Image
                     src={image.imageUrl}
-                    alt={image.description}
+                    alt={post.title}
                     fill
                     className="object-cover"
                     data-ai-hint={image.imageHint}
@@ -48,19 +70,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 </div>
               )}
 
-              <div className="prose prose-lg dark:prose-invert max-w-none mx-auto">
-                <p className="lead">
-                    This is a placeholder for the full blog post content. Replace this with your actual content management system or markdown file.
-                </p>
-                {'summary' in post && <p>{post.summary}</p>}
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.
-                </p>
-                <h2>Subsection Title</h2>
-                <p>
-                  Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa.
-                </p>
-              </div>
+              <div className="prose prose-lg dark:prose-invert max-w-none mx-auto" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
 
                 {/* Comments Section */}
                 <section className="mt-16">
@@ -123,11 +133,11 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                     <CardContent className="space-y-4">
                         {popularPosts.map(popularPost => {
                             const postImage = PlaceHolderImages.find(p => p.id === popularPost.imageId);
-                            const postUrl = 'summary' in popularPost ? `/stories/${popularPost.id}` : `/blog/${popularPost.id}`;
+                            const postUrl = popularPost.category === "Hustler Stories" ? `/stories/${popularPost.id}` : `/blog/${popularPost.id}`;
                             return (
                                 <Link href={postUrl} key={popularPost.id} className="flex gap-4 items-center group">
                                     <div className="w-20 h-20 relative rounded-md overflow-hidden shrink-0">
-                                        {postImage && <Image src={postImage.imageUrl} alt={postImage.description} fill className="object-cover" />}
+                                        {postImage && <Image src={postImage.imageUrl} alt={popularPost.title} fill className="object-cover" />}
                                     </div>
                                     <h4 className="font-semibold leading-tight group-hover:underline flex-1">{popularPost.title}</h4>
                                 </Link>

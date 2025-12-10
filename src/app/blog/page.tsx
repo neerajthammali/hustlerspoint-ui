@@ -5,11 +5,13 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { researchHighlights, hustlerStories } from "@/lib/data";
+import { getSortedPostsData } from "@/lib/posts";
 
 export default function BlogPage() {
     const categories = ["Research", "Hustler Stories", "Service Spotlights", "Career + Productivity", "Tech & Tools", "CivilTech"];
-    const allPosts = [...researchHighlights, ...hustlerStories.map(s => ({...s, category: "Hustler Stories"}))];
+    const blogPosts = getSortedPostsData('blog');
+    const storyPosts = getSortedPostsData('stories').map(s => ({...s, category: "Hustler Stories"}));
+    const allPosts = [...blogPosts, ...storyPosts];
 
   return (
     <div className="container mx-auto px-4 md:px-6 py-12">
@@ -27,14 +29,15 @@ export default function BlogPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {allPosts.map(post => {
             const image = PlaceHolderImages.find(p => p.id === post.imageId);
+            const postUrl = post.category === "Hustler Stories" ? `/stories/${post.id}` : `/blog/${post.id}`;
             return (
                 <Card key={post.id} className="flex flex-col overflow-hidden transition-shadow hover:shadow-xl">
-                    <Link href={`/blog/${post.id}`}>
+                    <Link href={postUrl}>
                         <div className="relative w-full h-48">
                             {image && (
                                 <Image
                                     src={image.imageUrl}
-                                    alt={image.description}
+                                    alt={post.title}
                                     fill
                                     className="object-cover"
                                     data-ai-hint={image.imageHint}
@@ -43,17 +46,17 @@ export default function BlogPage() {
                         </div>
                     </Link>
                     <CardHeader>
-                        <Badge variant="secondary" className="w-fit mb-2">{post.category}</Badge>
+                        {post.category && <Badge variant="secondary" className="w-fit mb-2">{post.category}</Badge>}
                         <CardTitle className="font-headline text-xl leading-tight">
-                            <Link href={`/blog/${post.id}`}>{post.title}</Link>
+                            <Link href={postUrl}>{post.title}</Link>
                         </CardTitle>
                     </CardHeader>
                     <CardContent className="flex-grow">
-                        {'summary' in post && <p className="text-sm text-muted-foreground line-clamp-3">{post.summary}</p>}
+                        {post.excerpt && <p className="text-sm text-muted-foreground line-clamp-3">{post.excerpt}</p>}
                     </CardContent>
                     <CardFooter>
                         <Button asChild variant="link" className="p-0">
-                            <Link href={`/blog/${post.id}`}>Read More <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                            <Link href={postUrl}>Read More <ArrowRight className="ml-2 h-4 w-4" /></Link>
                         </Button>
                     </CardFooter>
                 </Card>
